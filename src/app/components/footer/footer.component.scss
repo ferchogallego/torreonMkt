@@ -1,0 +1,74 @@
+.endPage {
+    .card {
+        cursor: pointer;
+        border: none;
+    }
+    .card:hover {
+        transform: scale(1.1);
+        transition: 700ms;
+    }
+}
+
+.ftr {
+    background-color: #9cc3e4;
+}
+
+footer {
+    .redes {
+        float: left;
+        color: #fff;
+        width: 35px;
+        height: 35px;
+        border: none;
+        background-color: #6d544d;
+        border-radius: 50%;
+        margin-left: 10px;
+    }
+}
+
+.icn {
+    float: left;
+    color: #fff;
+    width: 22px;
+    height: 22px;
+    border: none;
+    background-color: #6d544d;
+    border-radius: 50%;
+}
+
+.infor {
+    border: none;
+    background-color: #0000;
+    color: #6d544d;
+    font-weight: bold;
+    input {
+        width: 62%;
+        font-size: 12px;
+    }
+    .btfr {
+        font-size: 10px;
+        background-color: #ffd966;
+        border: solid;
+        border-width: 1px;
+        border-color: #584604;
+        border-radius: 5px;
+        color: #584604;
+        font-weight: bold;
+        height: 32px;
+    }
+}
+
+.ftrr {
+    width: 100%;
+    background-image: url(../../../assets/img/fondoMadera.jpg);
+    background-size: cover;
+    position: static;
+    z-index: 100;
+}
+
+.btftr {
+    max-width: 84px;
+    font-size: 9px;
+    border: solid;
+    border-width: 1px;
+}

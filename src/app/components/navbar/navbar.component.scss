@@ -1,0 +1,108 @@
+.head1 {
+    width: 100%;
+    height: 50px;
+    background-image: url(../../../assets/img/fondoMadera.jpg);
+    background-size: cover;
+    position: static;
+    z-index: 100;
+    .navbar {
+        margin-top: 4rem;
+        background-color: #00000000!important;
+        position: absolute;
+        left: 50%;
+        transform: translatex(-50%);
+        li {
+            margin-left: 40px;
+            font-size: 20px;
+            color: #fff;
+        }
+        .nav-link {
+            margin-top: 2rem;
+            color: #fff;
+            font-size: 25px !important;
+        }
+        z-index: 100;
+        li:hover {
+            transform: scale(1.2);
+            border-radius: 10px;
+            border-bottom: solid;
+            border-width: 2px;
+            border-color: #fff;
+            transition: 700ms;
+        }
+    }
+    .btnWht {
+        border-radius: 50%;
+        width: 35px;
+        height: 35px;
+        background-color: #6c534c;
+        border: solid;
+        border-width: 2px;
+        border-color: #fff;
+        color: #fff;
+        margin-top: 6px;
+    }
+    .hd1 {
+        color: #fff;
+        margin-top: 12px;
+        font-family: andalus !important;
+        src: url(../../../assets/fonts/andalus.ttf);
+        font-weight: bold;
+    }
+    .redes {
+        float: right;
+        margin-top: 9px;
+        border-radius: 50%;
+        width: 35px;
+        height: 35px;
+        border: none;
+        color: #fff;
+        background-color: #004c98;
+        margin-left: 13px;
+    }
+    .sch {
+        input {
+            width: 70%;
+        }
+        button {
+            border-radius: 50%;
+            background-color: #565656;
+            border: none;
+            margin-left: -20px;
+        }
+        .car {
+            float: right;
+            margin-left: 20px;
+            color: #fff;
+            width: 45px;
+            height: 45px;
+            background-color: #6d544d;
+        }
+    }
+}
+
+.menmovil {
+    background-color: #9cc3e4 !important;
+    .navbar-nav {
+        a {
+            color: #6d544d !important;
+        }
+    }
+}
+
+.but {
+    background-color: #353333 !important;
+    border: none;
+}
+
+.sch {
+    width: 85%;
+}
+
+.car2 {
+    background-color: #6d544d;
+    border: none;
+    border-radius: 50%;
+    color: #fff;
+    width: 10%;
+}

@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "torreonmarket-25713": {
+      "hosting": {
+        "torreon": [
+          "torreonmarket-25713"
+        ]
+      }
+    }
+  }
+}

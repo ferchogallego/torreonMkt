@@ -1,0 +1,60 @@
+<app-navsec></app-navsec>
+<div>
+    <div class="container">
+        <div class="col-lg-12 mt-5">
+            <h3 class="titulo">Productos por categoría</h3>
+            <hr>
+            <div class="row">
+                <div class="col-lg-3 izq">
+                    <form class="form-inline">
+                        <input class="form-control sch" type="search" placeholder="Buscar producto..." aria-label="Search">
+                        <button class="btnshc"><i class="fa fa-search-plus fa-lg"></i></button>
+                    </form>
+                    <h5 class="titulo mt-3">Filtrar por categoría</h5>
+                    <div class="col-lg-12">
+                        <div class="row">
+                            <div class="col-lg-6 categ">
+                                <button class="btn btn-primary btn-block">Belleza y cuidado</button>
+                                <button class="btn btn-primary btn-block">Tratamientos de salud</button>
+                                <button class="btn btn-primary btn-block">Control de peso</button>
+                                <button class="btn btn-primary btn-block">Alimentos y especies</button>
+                                <button class="btn btn-primary btn-block">vitaminas y suplementos</button>
+                            </div>
+                            <div class="col-lg-6 categ">
+                                <button class="btn btn-primary btn-block">Bienestar sexual</button>
+                                <button class="btn btn-primary btn-block">Aceites esenciales</button>
+                                <button class="btn btn-primary btn-block">Plantas medicinales</button>
+                                <button class="btn btn-primary btn-block">Suplementos deportivos</button>
+                            </div>
+                        </div>
+                    </div>
+                    <form class="mt-3">
+                        <div class="form-group">
+                            <label for="formControlRange"><h5 class="titulo">Filtrar precio</h5></label>
+                            <input type="range" id="slider" class="form-control-range rng" min="0" max="300000" step="1000" value="0" (change)="value($event.target.value)">
+                            <div class="text-right mt-3">
+                                <label><h5>Selección: <b>{{rango | currency}}</b></h5></label>
+                                <button class="filtrar" (click)="findPrice(rango)">Buscar</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="col-lg-9">
+                    <div class="row row-cols-1 row-cols-md-4">
+                        <div class="col mb-3" *ngFor="let item of lista">
+                            <div class="card games" (click)="openProduct(item.id)">
+                                <img [src]="item.imagen" class="card-img-top prd" alt="...">
+                                <div class="card-body">
+                                    <p class="card-title">{{item.nombre | titlecase}}</p>
+                                    <p class="card-text"><b>{{item.precio | currency}}</b></p>
+                                    <button class="compra"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Comprar</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<app-footer></app-footer>

@@ -1,0 +1,98 @@
+<app-navsec></app-navsec>
+<div class="container mt-5 mb-5">
+    <div class="col-lg-12">
+        <div class="row">
+            <div class="col-lg-4">
+                <div class="text-center">
+                    <img [src]="imagen" alt="" width="70%">
+                </div>
+                <h5>Descripción:</h5>
+                <p>{{descripcion}}</p>
+            </div>
+            <div class="col-lg-5 info">
+                <h3>{{nombre | titlecase}}</h3>
+                <H4>{{precio | currency}}</H4>
+                <hr>
+                <h5>Beneficios:</h5>
+                <div *ngFor="let item of beneficios">
+                    <p><i class="fa fa-thumbs-up" aria-hidden="true"></i>&nbsp;{{item}}</p>
+                </div>
+                <hr>
+                <div class="col-12">
+                    <label for="">Indique la cantidad:</label>
+                    <div class="row cantidad">
+                        <button (click)="cantidadProducto('sumar')" class="btn btn-outline-dark"><b>+</b></button>
+                        <input class="form-control text-center" [value]="cant" min="1" disabled>
+                        <button (click)="cantidadProducto('restar')" class="btn btn-outline-dark"><b>-</b></button>
+                    </div>
+                </div>
+                <hr>
+                <button class="btn btn-dark btn-block" data-toggle="modal" data-target="#myModal" (click)="sendRequest()"><i class="fa fa-cart-plus fa-lg"></i> <b> COMPRARLO</b></button>
+            </div>
+            <div class="col-lg-3">
+                <br>
+                <h5><i class="fa fa-check"></i> Modo de uso:</h5>
+                <p>{{uso}}</p>
+                <h5>Presentacion: {{presentacion}}.</h5>
+                <div class="text-center mt-5">
+                    <img src="../../../assets/img/pagos.png" class="img-fluid" alt="Responsive image">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div *ngIf="showModal">
+    <div id="myModal" class="modal fade">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="row">
+                                    <div class="col-6 text-left">
+                                        <h4><b>Inicio de Sesión</b></h4>
+                                    </div>
+                                    <div class="col-6 text-right">
+                                        <img src="../../../assets/img/logoTorreon.png" width="100" alt="">
+                                    </div>
+                                </div>
+                                <hr>
+                                <div class="text-center">
+                                    <h5>Ingresa tu datos</h5>
+                                    <hr>
+                                </div>
+                                <form action="">
+                                    <div class="form-group">
+                                        <label for="email">E-mail:</label>
+                                        <input type="email" class="form-control" placeholder="Ingrese su email" formControlName="email">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="email">Contraseña:</label>
+                                        <input type="password" class="form-control" placeholder="Ingrese su contraseña" formControlName="pass">
+                                    </div>
+                                    <button type="submit" class="btn btn-dark btn-block"><i class="fa fa-sign-in" aria-hidden="true"></i> INGRESAR</button>
+                                    <button type="submit" class="btn btn-outline-dark btn-block"><i class="fa fa-user-circle" aria-hidden="true"></i> CREAR CUENTA</button>
+                                    <br>
+                                    <h5>Ingresa directamente con:</h5>
+                                    <hr>
+                                    <div class="col-12">
+                                        <div class="row">
+                                            <div class="col-6">
+                                                <button class="btn btn-danger btn-block"><i class="fa fa-google fa-lg" aria-hidden="true"></i></button>
+                                            </div>
+                                            <div class="col-6">
+                                                <button class="btn btn-primary btn-block"><i class="fa fa-facebook fa-lg" aria-hidden="true"></i></button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<app-footer></app-footer>
