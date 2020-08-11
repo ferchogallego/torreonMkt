@@ -34,6 +34,7 @@ import { SuscriptoresComponent } from './admin/suscriptores/suscriptores.compone
 import { MensajesComponent } from './admin/mensajes/mensajes.component';
 import { RegisterComponent } from './pages/register/register.component';
 import { AccessComponent } from './admin/access/access.component';
+import { PurchasesComponent } from './pages/purchases/purchases.component';
 
 @NgModule({
   declarations: [
@@ -62,7 +63,8 @@ import { AccessComponent } from './admin/access/access.component';
     SuscriptoresComponent,
     MensajesComponent,
     RegisterComponent,
-    AccessComponent
+    AccessComponent,
+    PurchasesComponent
   ],
   imports: [
     BrowserModule,

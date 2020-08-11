@@ -47,14 +47,20 @@
             <li class="nav-item" *ngIf="user$ | async as user;">
                 <a class="nav-link" (click)="onLogout()"> <i class="fa fa-sign-out"></i> Salir</a>
             </li>
+            <li class="nav-item" *ngIf="user$ | async as user;">
+                <button class="carsec mr-5" [routerLink]="['/solicitudes']" routerLinkActive="router-link-active">
+                    <i class="fa fa-shopping-cart fa-lg" aria-hidden="true"></i>
+                    <span class="badge badge-warning intermitentesec">{{pedidos}}</span>
+                </button>
+            </li>
         </ul>
     </div>
     <div class="user" *ngIf="user$ | async as user;else showLogin">
-        <a class="btn btn-primary" routerLinkActive="router-link-active">{{user.email}}</a>
+        <a class="btn btn-primary" style="color: #fff;" routerLinkActive="router-link-active">{{user.email}}</a>
     </div>
     <ng-template #showLogin>
         <a routerLinkActive="active" data-toggle="modal" data-target="#myModal">
-            <a class="btn btn-primary">INGRESAR</a>
+            <a class="btn btn-primary" style="color: #fff;">INGRESAR</a>
         </a>
     </ng-template>
 </nav>
@@ -80,29 +86,39 @@
                                 <h5>Ingresa tu datos</h5>
                                 <hr>
                             </div>
-                            <form action="">
+                            <form [formGroup]="loginForm" (ngSubmit)="onLogin()">
                                 <div class="form-group">
                                     <label for="email">E-mail:</label>
-                                    <input type="email" class="form-control" placeholder="Ingrese su email">
+                                    <input type="email" class="form-control" placeholder="Ingrese su email" formControlName="email" [class.is-invalid]="emailNoValido">
+                                    <small class="eml" *ngIf="emailNoValido">Ingrese un email válido</small>
                                 </div>
                                 <div class="form-group">
                                     <label for="email">Contraseña:</label>
-                                    <input type="password" class="form-control" placeholder="Ingrese su contraseña">
+                                    <div class="row" *ngIf="passwordView == false">
+                                        <input type="password" class="form-control pass" formControlName="password" [class.is-invalid]="passwordNoValido">
+                                        <button class="btn btn-light viewPass" (click)="viewPassActive()"><i class="fa fa-eye-slash fa-lg"></i></button>
+                                        <small class="spn" *ngIf="passwordNoValido">La contraseña debe ser de 8 caracteres mínimo.</small>
+                                    </div>
+                                    <div class="row" *ngIf="passwordView == true">
+                                        <input type="text" class="form-control pass" formControlName="password" [class.is-invalid]="passwordNoValido">
+                                        <button class="btn btn-light viewPass" (click)="viewPassInActive()"><i class="fa fa-eye fa-lg"></i></button>
+                                        <small class="spn" *ngIf="passwordNoValido">La contraseña debe ser de 8 caracteres mínimo.</small>
+                                    </div>
                                 </div>
                                 <button type="submit" class="btn btn-dark btn-block"><i class="fa fa-sign-in" aria-hidden="true"></i> INGRESAR</button>
-                                <button type="submit" class="btn btn-outline-dark btn-block" [routerLink]="['/registro']" data-dismiss="modal"><i class="fa fa-user-circle" aria-hidden="true"></i> CREAR CUENTA</button>
+                                <button type="button" class="btn btn-outline-dark btn-block" [routerLink]="['/registro']" data-dismiss="modal"><i class="fa fa-user-circle" aria-hidden="true"></i> CREAR CUENTA</button>
                                 <br>
                                 <h5>Ingresa directamente con:</h5>
                                 <hr>
                                 <div class="col-12">
                                     <div class="row">
                                         <div class="col-6">
-                                            <button class="btn btn-danger btn-block" (click)="onLoginGoogle()">
+                                            <button type="button" class="btn btn-danger btn-block" (click)="onLoginGoogle()">
                                                 <i class="fa fa-google fa-lg" aria-hidden="true"></i>
                                             </button>
                                         </div>
                                         <div class="col-6">
-                                            <button class="btn btn-primary btn-block" (click)="onLoginFacebook()">
+                                            <button type="button" class="btn btn-primary btn-block" (click)="onLoginFacebook()">
                                                 <i class="fa fa-facebook fa-lg" aria-hidden="true"></i>
                                             </button>
                                         </div>

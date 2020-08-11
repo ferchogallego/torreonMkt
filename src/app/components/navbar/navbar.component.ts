@@ -33,7 +33,6 @@ export class NavbarComponent implements OnInit {
       this.shopSvc.cantPedidos(this.idUser)
                   .subscribe(cant => {
                     this.pedidos = cant.length;
-                    console.log('grgrrg', this.pedidos);
                   });
     });
   }

@@ -179,4 +179,9 @@ export class ShopService {
     .where('usuario', '==', userId)).valueChanges();
    }
 
+   purchasesByBuyer(id: string){
+    return this.db.collection('sales/', ref => ref
+    .where('comprador', '==', id)).valueChanges();
+   }
+
 }

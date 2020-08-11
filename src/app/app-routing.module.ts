@@ -22,6 +22,7 @@ import { AuthGuard } from './shared/guards/auth.guard';
 import { AdminGuard } from './shared/guards/admin.guard';
 import { RegisterComponent } from './pages/register/register.component';
 import { AccessComponent } from './admin/access/access.component';
+import { PurchasesComponent } from './pages/purchases/purchases.component';
 
 
 
@@ -32,6 +33,7 @@ const routes: Routes = [
   { path: 'productos/:id', component: ProductsComponent},
   { path: 'producto/:id', component: ProductoComponent},
   { path: 'solicitudes', component: RequestComponent, canActivate: [AuthGuard]},
+  { path: 'info', component: PurchasesComponent, canActivate: [AuthGuard]},
   { path: 'catalogo', component: CatalogoComponent},
   { path: 'blog', component: BlogComponent},
   { path: 'post/:id', component: PostComponent},
@@ -51,7 +53,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, {useHash: true})],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
