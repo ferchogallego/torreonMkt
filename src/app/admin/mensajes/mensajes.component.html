@@ -1,0 +1,27 @@
+<app-adminav></app-adminav>
+<div class="container">
+    <div class="col-lg-12 mt-5">
+        <h3>Mensajes desde formulario de contacto</h3>
+        <hr>
+        <table class="table table-hover mt-3">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">Usuario</th>
+                    <th scope="col">E-mail</th>
+                    <th scope="col">Ciudad</th>
+                    <th scope="col">Teléfono</th>
+                    <th scope="col">Mensaje</th>
+                </tr>
+            </thead>
+            <tbody class="text-left">
+                <tr *ngFor="let mensaje of lista ">
+                    <td>{{mensaje.nombre | titlecase}}</td>
+                    <td>{{mensaje.correo}}</td>
+                    <td>{{mensaje.ciudad}}</td>
+                    <td>{{mensaje.telefono}}</td>
+                    <td>{{mensaje.mensaje}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -1,0 +1,13 @@
+.container {
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+    .card {
+        cursor: pointer;
+        transition: 700ms;
+    }
+    .card:hover {
+        border: solid;
+        border-color: #6c534c;
+        transform: scale(1.1);
+    }
+}

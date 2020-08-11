@@ -1,0 +1,96 @@
+.row {
+    margin-top: 1rem;
+    margin-bottom: 4rem;
+    padding: 2rem;
+}
+
+.liquid {
+    text-align: right;
+    font-weight: bold;
+    width: 60%;
+    border: 0;
+}
+
+.liquid2 {
+    text-align: left;
+    width: 60%;
+    border: solid;
+    border-width: 1px;
+    border-radius: 5px;
+}
+
+.blok {
+    width: 40%;
+}
+
+.blok1 {
+    font-size: 25px;
+    width: 40%;
+}
+
+.liquid1 {
+    text-align: right;
+    font-weight: bold;
+    color: red;
+    width: 60%;
+    border: 0;
+    font-size: 25px;
+}
+
+.img-fluid {
+    width: 80px;
+    height: 80px;
+}
+
+.endShop {
+    width: 100%;
+    border-radius: 5px;
+    border: solid;
+    border-color: #6c534c;
+    background-color: #6c534c;
+    color: #fff;
+    margin-bottom: 5px;
+}
+
+.endShopd {
+    width: 100%;
+    border-radius: 5px;
+    border: solid;
+    border-color: #6b6564;
+    background-color: #837c7a;
+    color: rgb(119, 112, 112);
+    margin-bottom: 5px;
+}
+
+.endShop:hover {
+    background-color: #fff;
+    border: solid;
+    border-color: #6c534c;
+    color: #6c534c;
+    transition: 600ms;
+}
+
+.shop {
+    width: 100%;
+    border-radius: 5px;
+    background-color: #fff;
+    border: solid;
+    border-color: #6c534c;
+    color: #6c534c;
+    transition: 600ms;
+}
+
+.shop:hover {
+    border: solid;
+    border-color: #6c534c;
+    background-color: #6c534c;
+    color: #fff;
+    margin-bottom: 5px;
+    transition: 600ms;
+}
+
+.ttal {
+    border: solid;
+    border-width: 2px;
+    border-color: #dee2e6;
+}

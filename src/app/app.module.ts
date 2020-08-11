@@ -16,6 +16,24 @@ import { FooterComponent } from './components/footer/footer.component';
 import { ProductsComponent } from './pages/products/products.component';
 import { ProductoComponent } from './pages/producto/producto.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { RequestComponent } from './pages/request/request.component';
+import { FilterPipe } from './pipes/filter.pipe';
+import { CatalogoComponent } from './pages/catalogo/catalogo.component';
+import { BlogComponent } from './pages/blog/blog.component';
+import { PostComponent } from './pages/post/post.component';
+import { InventarioComponent } from './admin/inventario/inventario.component';
+import { NuevoComponent } from './admin/nuevo/nuevo.component';
+import { EditarComponent } from './admin/editar/editar.component';
+import { AdminavComponent } from './admin/adminav/adminav.component';
+import { ListaComponent } from './admin/blog/lista/lista.component';
+import { NewComponent } from './admin/blog/new/new.component';
+import { ResponsePayuComponent } from './pages/response-payu/response-payu.component';
+import { PedidosComponent } from './admin/pedidos/pedidos.component';
+import { ClientesComponent } from './admin/clientes/clientes.component';
+import { SuscriptoresComponent } from './admin/suscriptores/suscriptores.component';
+import { MensajesComponent } from './admin/mensajes/mensajes.component';
+import { RegisterComponent } from './pages/register/register.component';
+import { AccessComponent } from './admin/access/access.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +44,25 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     NavsecComponent,
     FooterComponent,
     ProductsComponent,
-    ProductoComponent
+    ProductoComponent,
+    RequestComponent,
+    FilterPipe,
+    CatalogoComponent,
+    BlogComponent,
+    PostComponent,
+    InventarioComponent,
+    NuevoComponent,
+    EditarComponent,
+    AdminavComponent,
+    ListaComponent,
+    NewComponent,
+    ResponsePayuComponent,
+    PedidosComponent,
+    ClientesComponent,
+    SuscriptoresComponent,
+    MensajesComponent,
+    RegisterComponent,
+    AccessComponent
   ],
   imports: [
     BrowserModule,

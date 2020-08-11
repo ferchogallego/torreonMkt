@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductosService } from '../../services/productos.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import {ProductI} from '../../shared/product.interface';
 
 @Component({
   selector: 'app-products',
@@ -8,35 +9,71 @@ import { ActivatedRoute, Router } from '@angular/router';
   styleUrls: ['./products.component.scss']
 })
 export class ProductsComponent implements OnInit {
+
+  filterProducto = '';
   rango = '0';
   categoria: string;
   lista: any;
+  productos: ProductI[] = [];
   constructor(private productoSvc: ProductosService,
               private route: ActivatedRoute,
               private router: Router) { }
 
   ngOnInit(): void {
     const id = this.route.snapshot.paramMap.get('id');
-    this.productoSvc.loadProductByCategory(id)
+    this.productoSvc.loadAllProducts()
                    .subscribe(res => {
-                      console.log(res);
                       this.lista = res;
+                      // tslint:disable-next-line: prefer-for-of
+                      for (let i = 0; i < this.lista.length; i++) {
+                        const prd = this.lista[i];
+                        // tslint:disable-next-line: prefer-for-of
+                        for (let a = 0; a < prd.categoria.length; a++) {
+                          const catsel = prd.categoria[a];
+                          if (catsel === id) {
+                            this.productos.push(prd);
+                          }
+                        }
+                      }
                    });
   }
+
+  loadByCategory(categoria: string){
+    this.productos = [];
+    const id = categoria;
+    this.productoSvc.loadAllProducts()
+                   .subscribe(res => {
+                      this.lista = res;
+                      // tslint:disable-next-line: prefer-for-of
+                      for (let i = 0; i < this.lista.length; i++) {
+                        const prd = this.lista[i];
+                        // tslint:disable-next-line: prefer-for-of
+                        for (let a = 0; a < prd.categoria.length; a++) {
+                          const catsel = prd.categoria[a];
+                          if (catsel === id) {
+                            this.productos.push(prd);
+                          }
+                        }
+                      }
+                   });
+  }
+  allProducts(){
+    this.productos = [];
+    this.productoSvc.loadAllProducts()
+                   .subscribe(res => {
+                     this.lista = res;
+                     // tslint:disable-next-line: prefer-for-of
+                     for (let i = 0; i < this.lista.length; i++) {
+                      const prd = this.lista[i];
+                      this.productos.push(prd);
+                     }
+                   });
+  }
+
   value(event: any){
     this.rango = event;
   }
-  findPrice(valor: string){
-    // tslint:disable-next-line: radix
-    const cantidad = parseInt(valor);
-    this.lista = '';
-    // console.log(cantidad);
-    this.productoSvc.loadProductsForPrice(cantidad)
-    .subscribe (resp => {
-      this.lista = resp;
-      // console.log(this.juegos);
-    });
-  }
+
   openProduct(producto: string){
     this.router.navigate([`/producto/${producto}`]);
   }

@@ -1,0 +1,104 @@
+<app-adminav></app-adminav>
+<div class="container" style="margin-top: 3rem; margin-bottom: 5rem;">
+    <h2>Editar Producto:</h2>
+    <hr>
+    <div class="row animated fadeIn slow mt-5">
+        <div class="col-md-12">
+            <form [formGroup]="editProductForm" (ngSubmit)="editProduct(editProductForm.value)" autocomplete="off">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>Nombre del producto:</label>
+                            <input type="text" formControlName="nombre" class="form-control" [class.is-invalid]="nombreNoValido" placeholder="Nombre del producto" name="nombre">
+                            <small *ngIf="nombreNoValido" class="text-danger">Debe ingresar el nombre</small>
+                        </div>
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col-lg-10">
+                                    <label>Categoria</label>
+                                    <select class="form-control" name="tipo" (change)="handleCategory($event.target.value)">                      
+                                            <option value="Plantas medicinales">Plantas medicinales</option>
+                                            <option value="Control de peso y desintoxicación">Control de peso y desintoxicación</option>
+                                            <option value="Aceites esenciales">Aceites esenciales</option>
+                                            <option value="Belleza y cuidado personal">Belleza y cuidado personal</option>
+                                            <option value="Tratamientos para la salud">Tratamientos para la salud</option>
+                                            <option value="Bienestar sexual">Bienestar sexual</option>
+                                            <option value="Alimentos y especies">Alimentos y especies</option>
+                                            <option value="Suplementos deportivos">Suplementos deportivos</option>
+                                            <option value="Vitaminas y suplementos">Vitaminas y suplementos</option>
+                                    </select>
+                                    <div class="mt-1">
+                                        <p class="ctgs" *ngFor="let cat of categorias"><i class="fa fa-angle-right"></i>&nbsp;{{cat}}</p>
+                                    </div>
+                                </div>
+                                <div class="col-lg-2 bt">
+                                    <button type="button" (click)="addCategoria()" class="btn btn-light" title="Agregar categoría"><img src="../../../assets/img/add.png" width="30"></button>
+                                    <button type="button" (click)="deleteCategories()" class="btn btn-light" title="Limpiar"><img src="../../../assets/img/delete.png" width="25"></button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Imagen del producto:</label>
+                            <input type="file" formControlName="imagen" class="form-control" (change)="handleImage($event)">
+                        </div>
+                        <div class="col-md-12 form-group">
+                            <label>Descripcion:</label>
+                            <textarea class="form-control" formControlName="descripcion" [class.is-invalid]="descripcionNoValido" cols="30" rows="5"></textarea>
+                            <small *ngIf="descripcionNoValido" class="text-danger">Debe ingresar la descripcion del producto min 30 caracteres</small>
+                        </div>
+                        <div class="form-group">
+                            <label>Uso:</label>
+                            <input type="text" formControlName="uso" class="form-control" name="uso" placeholder="Ingrese el modo de uso" [class.is-invalid]="usoNoValido">
+                            <small *ngIf="usoNoValido" class="text-danger">Debe ingresar el modo de uso</small>
+                        </div>
+                        <div class="form-group">
+                            <label>Presentación:</label>
+                            <input type="text" formControlName="presentacion" class="form-control" name="presentacion" placeholder="Ingrese la presentacion del producto" [class.is-invalid]="presentacionNoValido">
+                            <small *ngIf="presentacionNoValido" class="text-danger">Debe ingresar la presentacion</small>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>Cantidad:</label>
+                            <input type="number" formControlName="cantidad" class="form-control" name="cantidad" placeholder="Ingrese la cantidad" [class.is-invalid]="cantNoValido">
+                            <small *ngIf="cantNoValido" class="text-danger">Debe ingresar la cantidad</small>
+                        </div>
+                        <div class="form-group">
+                            <label>Precio:</label>
+                            <input type="text" formControlName="precio" class="form-control" name="precio" placeholder="Ingrese el precio" [class.is-invalid]="precioNoValido">
+                            <small *ngIf="precioNoValido" class="text-danger">Debe ingresar el precio</small>
+                        </div>
+                        <div class="col-md-12 form-group">
+                            <label>Solución del producto:</label>
+                            <textarea class="form-control" formControlName="solucion" [class.is-invalid]="solucionNoValido" cols="30" rows="5"></textarea>
+                            <small *ngIf="solucionNoValido" class="text-danger">Debe ingresar la solución del producto min 30 caracteres</small>
+                        </div>
+
+                        <div class="col-md-12 imgBox">
+                            <img *ngIf="imgLoad == true" [src]="imageSrc" class="imgSrc" alt="">
+                            <img *ngIf="imgLoad == false" [src]="image" class="imgSrc" alt="">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-10">
+                        <label>Beneficios:</label>
+                        <input type="text" (change)="handleBenefits($event.target.value)" class="form-control" placeholder="Ingrese cada uno de los beneficios del producto">
+                        <div class="mt-1">
+                            <p class="ctgs" *ngFor="let beneficio of beneficios"><i class="fa fa-check"></i>&nbsp;{{beneficio}}</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-2 bt">
+                        <button type="button" (click)="addBenefits()" class="btn btn-light" title="Agregar categoría"><img src="../../../assets/img/add.png" width="30"></button>
+                        <button type="button" (click)="deleteBenefits()" class="btn btn-light" title="Limpiar"><img src="../../../assets/img/delete.png" width="25"></button>
+                    </div>
+                </div>
+                <div class="form-group text-center mt-3">
+                    <button type="submit" class="btn btn-success w-50">
+                        <i class="fa fa-save"> Guardar</i>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

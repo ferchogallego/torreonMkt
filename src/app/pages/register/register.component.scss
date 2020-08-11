@@ -1,0 +1,26 @@
+.container {
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+    .registro {
+        background-color: rgb(194, 230, 241);
+        border: solid;
+        border-width: 1px;
+        border-color: rgb(136, 135, 135);
+        width: 45%;
+        margin-left: auto;
+        margin-right: auto;
+        .regForm {
+            margin: 2rem;
+        }
+    }
+    .pass {
+        width: 80%;
+        margin-left: 15px;
+    }
+    .viewPass {
+        float: right;
+        color: #364d6a;
+        border: none;
+        background-color: rgb(194, 230, 241);
+    }
+}

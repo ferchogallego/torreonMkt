@@ -1,0 +1,105 @@
+<app-adminav></app-adminav>
+<div class="container mt-5">
+    <div class="col-lg-12">
+        <h3>Pedidos</h3>
+        <hr>
+        <h5>Filtrar Por:</h5>
+        <div class="col-lg-12">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="form-group">
+                        <label>Estado:</label>
+                        <select class="form-control" (change)="filterByState($event.target.value)">  
+                            <option value="todos">Todos</option>                    
+                            <option value="Aprobada">Aprobada</option>
+                            <option value="Procesandose">En proceso</option>
+                            <option value="Rechazada">Rechazada</option>
+                </select>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <label for="referencia">Referencia:</label>
+                    <input class="form-control" (change)="filterByRef($event.target.value)" type="text" placeholder="Ingrese referencia" name="referencia" autocomplete="off">
+                </div>
+            </div>
+        </div>
+        <hr>
+        <table class="table">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">Fecha</th>
+                    <th scope="col">Medio</th>
+                    <th scope="col">Ref. pago</th>
+                    <th scope="col">Estado</th>
+                    <th scope="col">Precio</th>
+                    <th scope="col">acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of lista">
+                    <td>{{item.comprado | date}}</td>
+                    <td>{{item.medio}}</td>
+                    <td>{{item.reference}}</td>
+                    <td>{{item.state}}</td>
+                    <td>{{item.precio}}</td>
+                    <td class="text-center">
+                        <button *ngIf="item.state != 'Rechazada'" type="button" (click)="detailRequest(item.reference)" class="btn btn-success" title="Ver detalle" data-toggle="modal" data-target="#staticBackdrop">
+                            <i class="fa fa-list fa-lg" aria-hidden="true"></i>
+                          </button>
+                        <button *ngIf="item.state == 'Procesandose'" type="button" class="btn btn-primary ml-2 mr-2" (click)="approve(item.reference, item.comprador)" title="Aprobar venta">
+                            <i class="fa fa-check fa-lg" aria-hidden="true"></i>
+                          </button>
+                        <button *ngIf="item.state != 'Aprobada'" type="button" class="btn btn-danger" (click)="deny(item.id)" title="Eliminar de la lista">
+                            <i class="fa fa-ban fa-lg" aria-hidden="true"></i>
+                          </button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="staticBackdropLabel">Detalle de venta</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+            </div>
+            <div class="modal-body" style="background-color: #fff;">
+                <h4>Usuario:</h4>
+                <p><small>Nombre: <b>{{nombre}}</b></small></p>
+                <p><small>Direccion de entrega: <b>{{direccion}}</b></small></p>
+                <p><small>Ciudad: <b>{{ciudad}}</b></small></p>
+                <p><small>Teléfono: <b>{{telefono}}</b></small></p>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">Producto</th>
+                            <th scope="col"></th>
+                            <th scope="col">Cantidad</th>
+                            <th scope="col">Precio</th>
+                            <th scope="col">Total</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let producto of request">
+                            <td><img [src]="producto.compra[2]" class="img-fluid" alt="Responsive image" width="60"></td>
+                            <td>
+                                <h5>{{producto.compra[1] | titlecase}}</h5>
+                            </td>
+                            <td>{{producto.compra[4]}}</td>
+                            <td>{{producto.compra[3] | currency}}</td>
+                            <td>{{producto.compra[5] | currency}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
+    </div>
+</div>

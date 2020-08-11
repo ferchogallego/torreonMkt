@@ -1,0 +1,63 @@
+html {
+    scroll-behavior: smooth;
+}
+
+.modal-body {
+    background-color: #9cc3e4;
+    color: #6c534c;
+}
+
+.car {
+    float: right;
+    margin-left: 20px;
+    color: #fff;
+    width: 45px;
+    height: 45px;
+    background-color: #6d544d;
+    .intermitente {
+        position: absolute;
+        padding: 5px 5px;
+        box-shadow: 0px 0px 7px;
+        animation: infinite resplandorAnimation 2s;
+        border-radius: 50%;
+    }
+    @keyframes resplandorAnimation {
+        0%,
+        100% {
+            box-shadow: 0px 0px 20px;
+        }
+        50% {
+            box-shadow: 0px 0px 0px;
+        }
+    }
+}
+
+
+/* Animaciones */
+
+.animated {
+    -webkit-animation-duration: 1s;
+    animation-duration: 1s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+}
+
+.fast {
+    -webkit-animation-duration: 0.4s;
+    animation-duration: 0.4s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.fadeIn {
+    animation-name: fadeIn;
+}

@@ -1,0 +1,83 @@
+<app-navsec></app-navsec>
+<div class="carrito">
+    <div class="col-lg-12">
+        <div class="row">
+            <div class="col-lg-8">
+                <table class="table mt-3 animated fadeIn faster">
+                    <thead>
+                        <tr>
+                            <th scope="col">Producto</th>
+                            <th scope="col"></th>
+                            <th scope="col">Cantidad</th>
+                            <th scope="col">$ Precio</th>
+                            <th scope="col">$ Total</th>
+                            <th scope="col"></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let item of compras">
+                            <td><img [src]="item.compra[2]" class="img-fluid img-thumbnail" alt=" "> </td>
+                            <td>
+                                <h5>{{item.compra[1]}} <br></h5>
+                                <p>Torreón Market.</p>
+                            </td>
+                            <td>{{item.compra[4]}}</td>
+                            <td>{{item.compra[3]}}</td>
+                            <td>{{item.compra[5]}}</td>
+                            <td>
+                                <button class="btn btn-danger" title="Eliminar" (click)="borrarProducto(item)">
+                            <i class="fa fa-trash fa-lg"></i>
+                        </button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="col-lg-4 mt-3 ttal">
+                <div class="col-lg-12">
+                    <hr>
+                    <h5>Datos de entrega:</h5>
+                    <hr>
+                    <form [formGroup]="deliveryForm" (ngSubmit)="infoUser(deliveryForm.value)">
+                        <label for=""><b>Nombre completo:</b></label>
+                        <input type="text" class="form-control" placeholder="Ingrese su nombre" formControlName="nombre">
+                        <label class="mt-2" for=""><b>Teléfono:</b></label>
+                        <input type="text" class="form-control" placeholder="Ingrese su número telefónico" formControlName="telefono">
+                        <label class="mt-2" for=""><b>Ciudad:</b></label>
+                        <input type="text" class="form-control" placeholder="Ciudad de entrega" formControlName="ciudad">
+                        <label class="mt-2" for=""><b>Dirección:</b></label>
+                        <input type="text" class="form-control" placeholder="Dirección de entrega" formControlName="direccion">
+                        <button class="endShop mt-2" type="submit">                                      
+                            <i class="fa fa-user-plus" aria-hidden="true"> Confirmar datos </i>                    
+                        </button>
+                    </form>
+                </div>
+                <hr>
+                <p>
+                    <label for="Subtotal" class="blok"><b>Subtotal:</b></label>
+                    <input type="text" class="liquid" readonly [value]="subtotal | currency">
+                </p>
+                <p>
+                    <label for="Subtotal" class="blok1"><b>TOTAL:</b></label>
+                    <input type="text" class="liquid1" readonly [value]='liquidacion |currency'>
+                </p>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" (change)="check($event.target.value)" id="defaultCheck1">
+                    <label class="form-check-label" for="defaultCheck1">
+                        Acepto términos y condiciones de Torreón Market y autorizo el tratamiento de mis datos personales con las siguientes condiciones.
+                    </label>
+                </div>
+                <hr>
+                <button *ngIf="confirmado" class="endShop" type="button">                                      
+                    <i class="fa fa-credit-card" aria-hidden="true" (click)="payu()"> Finalizar Compra </i>                    
+                </button>
+                <button *ngIf="!confirmado" class="endShopd" type="button" disabled>                                      
+                    <i class="fa fa-credit-card" aria-hidden="true"> Finalizar Compra </i>                    
+                </button>
+                <button class="shop" routerLink='/catalogo'>
+                    <i class="fa fa-shopping-cart" aria-hidden="true"> Seguir comprando </i>                    
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

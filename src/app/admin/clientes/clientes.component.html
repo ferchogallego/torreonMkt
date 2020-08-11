@@ -1,0 +1,27 @@
+<app-adminav></app-adminav>
+<div class="container">
+    <div class="col-lg-12 mt-5">
+        <h3>Lista de clientes activos</h3>
+        <hr>
+        <table class="table table-hover mt-3">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">E-mail</th>
+                    <th scope="col">Teléfono</th>
+                    <th scope="col">Dirección</th>
+                    <th scope="col">Ciudad</th>
+                </tr>
+            </thead>
+            <tbody class="text-left">
+                <tr *ngFor="let cliente of lista ">
+                    <td>{{cliente.datos.nombre}}</td>
+                    <td>{{cliente.email}}</td>
+                    <td>{{cliente.datos.telefono}}</td>
+                    <td>{{cliente.datos.direccion}}</td>
+                    <td>{{cliente.datos.ciudad}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

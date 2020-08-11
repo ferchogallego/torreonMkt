@@ -1,0 +1,36 @@
+<app-adminav></app-adminav>
+<div class="container mt-5 mb-5">
+    <div class="col-lg-12">
+        <h3>Crear un nuevo artículo</h3>
+        <hr>
+        <form [formGroup]="newPostForm" (ngSubmit)="addPost(newPostForm.value)">
+            <div class="row">
+                <div class="form-group col-lg-6">
+                    <label for="">Imagen del artículo:</label>
+                    <input type="file" class="form-control" formControlName="imagen" (change)="handleImage($event)">
+                </div>
+                <div class="col-lg-6">
+                    <img src="" alt="">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="">Título:</label>
+                <input type="text" class="form-control" placeholder="Ingrese el título" formControlName="titulo">
+            </div>
+            <div class="form-group">
+                <label for="">Introducción:</label>
+                <input type="text" class="form-control" placeholder="Introducción del contenido" formControlName="introduccion">
+            </div>
+
+            <div class="form-group">
+                <label for="">Contenido del artículo:</label>
+                <textarea class="form-control" formControlName="contenido" id="" cols="30" rows="10"></textarea>
+            </div>
+
+            <div class="text-center">
+                <button class="btn btn-dark">Publicar Artículo</button>
+            </div>
+
+        </form>
+    </div>
+</div>

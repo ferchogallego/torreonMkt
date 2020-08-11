@@ -37,7 +37,7 @@ export class PortadaComponent implements OnInit {
     this.productoSvc.loadCategoriesIndex()
                     .subscribe(res => {
                       this.cat = res;
-                      console.log(this.cat);
+                      // console.log(this.cat);
                     });
   }
   openCategories(categoria: string){
