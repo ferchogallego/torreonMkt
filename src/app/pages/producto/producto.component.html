@@ -22,9 +22,9 @@
                 <div class="col-12">
                     <label for="">Indique la cantidad:</label>
                     <div class="row cantidad">
-                        <button (click)="cantidadProducto('sumar')" class="btn btn-outline-dark"><b>+</b></button>
-                        <input class="form-control text-center" [value]="cant" min="1" disabled>
                         <button (click)="cantidadProducto('restar')" class="btn btn-outline-dark"><b>-</b></button>
+                        <input class="form-control text-center" [value]="cant" min="1" disabled>
+                        <button (click)="cantidadProducto('sumar')" class="btn btn-outline-dark"><b>+</b></button>
                     </div>
                 </div>
                 <hr>
