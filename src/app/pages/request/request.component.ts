@@ -126,7 +126,7 @@ export class RequestComponent implements OnInit {
       <input name="buyerEmail" type="hidden" value="${this.email}">
       <input name="responseUrl" type="hidden" value="https://torreonmarket-25713.web.app/#/confirmacion">
       <input name="confirmationUrl" type="hidden" value="http://www.test.com/confirmation">
-      <button type="submit" class="pago">
+      <button type="submit" class="btn btnPago">
           <i class="fa fa-credit-card" aria-hidden="true"> Aceptar </i>
       </button>
     </form>`;
@@ -144,7 +144,7 @@ export class RequestComponent implements OnInit {
                 html: pasarela,
                 showConfirmButton: false,
                 showCancelButton: true,
-                cancelButtonColor: '#d33',
+                cancelButtonColor: '#d46767',
                 });
     }).catch(err => {
       Swal.fire({

@@ -8,9 +8,9 @@
                     <form class="form-inline">
                         <div class="col-lg-12">
                             <div class="row">
-                                <label for=""><h5 class="titulo">Buscar producto por el nombre o necesidad:</h5></label>
-                                <input class="form-control inp mt-2" [(ngModel)]="filterProducto" name="filterProducto" type="search" placeholder="Ej... piel, colon, cabello" aria-label="Search" autocomplete="off">
-                                <button class="btnshc mt-2"><i class="fa fa-search-plus fa-lg"></i></button>
+                                <label for="formControlRange"><p class="titulo" style="font-size: 18px;"><b>Buscar por producto, enfermedad, o por parte del cuerpo:</b></p></label>
+                                <input class="form-control inp mt-2" [(ngModel)]="filterProducto" name="filterProducto" type="search" placeholder="Ej...colágeno, artritis, huesos" aria-label="Search" autocomplete="off">
+                                <button class="btnshc mt-2"><i class="fa fa-search fa-lg"></i></button>
                             </div>
                         </div>
                     </form>
@@ -18,10 +18,10 @@
                 <div class="col-lg-6">
                     <form>
                         <div class="form-group">
-                            <label for="formControlRange"><h5 class="titulo">Filtrar precio</h5></label>
+                            <label for=""><p class="titulo" style="font-size: 18px;"><b>Filtrar Precio:</b></p></label>
                             <input type="range" id="slider" class="form-control-range rng" min="0" max="300000" step="1000" value="0" (change)="value($event.target.value)">
                             <div class="text-right mt-3">
-                                <label class="mr-2"><h5>Selección: <b>{{rango | currency}}</b></h5></label>
+                                <label class="mr-2"><p>Precio Máximo: <b style="font-size: 18px;">{{rango | currency}}</b></p></label>
                                 <button class="filtrar" (click)="findPrice(rango)">Buscar</button>
                             </div>
                         </div>
@@ -34,12 +34,17 @@
     <div class="col-lg-12 mt-5">
         <div class="row row-cols-1 row-cols-md-4">
             <div class="col mb-3" *ngFor="let item of lista | filter:filterProducto">
-                <div class="card games" (click)="openProduct(item.id)">
+                <div class="card h-100 games" (click)="openProduct(item.id)">
                     <img [src]="item.imagen" class="card-img-top prd" alt="...">
                     <div class="card-body">
-                        <p class="card-title">{{item.nombre | titlecase}}</p>
-                        <p class="card-text"><b>{{item.precio | currency}}</b></p>
-                        <button class="compra"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Comprar</button>
+                        <h5>{{item.nombre | titlecase}}</h5>
+                        <h5>{{item.presentacion | titlecase}}</h5>
+                    </div>
+                    <div class="card-footer">
+                        <div class="text-center mb-2">
+                            <h4 class="card-text"><b>${{item.precio | number}}</b></h4>
+                        </div>
+                        <button class="btn btn-light btnPer" style="width: 100%;"><i class="fa fa-shopping-cart" aria-hidden="true"></i> COMPRAR</button>
                     </div>
                 </div>
             </div>

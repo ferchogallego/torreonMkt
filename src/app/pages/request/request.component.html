@@ -3,7 +3,7 @@
     <div class="col-lg-12">
         <div class="row">
             <div class="col-lg-8">
-                <table class="table mt-3 animated fadeIn faster">
+                <table class="table table-responsive mt-3">
                     <thead>
                         <tr>
                             <th scope="col">Producto</th>
@@ -19,11 +19,10 @@
                             <td><img [src]="item.compra[2]" class="img-fluid img-thumbnail" alt=" "> </td>
                             <td>
                                 <h5>{{item.compra[1]}} <br></h5>
-                                <p>Torreón Market.</p>
                             </td>
-                            <td>{{item.compra[4]}}</td>
-                            <td>{{item.compra[3]}}</td>
-                            <td>{{item.compra[5]}}</td>
+                            <td class="text-center">{{item.compra[4]}}</td>
+                            <td>${{item.compra[3] | number}}</td>
+                            <td>${{item.compra[5] | number}}</td>
                             <td>
                                 <button class="btn btn-danger" title="Eliminar" (click)="borrarProducto(item)">
                             <i class="fa fa-trash fa-lg"></i>
@@ -47,7 +46,7 @@
                         <input type="text" class="form-control" placeholder="Ciudad de entrega" formControlName="ciudad">
                         <label class="mt-2" for=""><b>Dirección:</b></label>
                         <input type="text" class="form-control" placeholder="Dirección de entrega" formControlName="direccion">
-                        <button class="endShop mt-2" type="submit">                                      
+                        <button style="width: 100%;" class="btn btn-light btnPer mt-2" type="submit">                                      
                             <i class="fa fa-user-plus" aria-hidden="true"> Confirmar datos </i>                    
                         </button>
                     </form>
@@ -55,11 +54,11 @@
                 <hr>
                 <p>
                     <label for="Subtotal" class="blok"><b>Subtotal:</b></label>
-                    <input type="text" class="liquid" readonly [value]="subtotal | currency">
+                    <b class="liquid" style="float: right;">${{subtotal | number}}</b>
                 </p>
                 <p>
                     <label for="Subtotal" class="blok1"><b>TOTAL:</b></label>
-                    <input type="text" class="liquid1" readonly [value]='liquidacion |currency'>
+                    <b class="liquid1" style="float: right;">${{liquidacion | number}}</b>
                 </p>
                 <div class="form-check">
                     <input class="form-check-input" type="checkbox" (change)="check($event.target.value)" id="defaultCheck1">
@@ -68,13 +67,13 @@
                     </label>
                 </div>
                 <hr>
-                <button *ngIf="confirmado" class="endShop" type="button">                                      
+                <button *ngIf="confirmado" style="width: 100%;" class="btn btn-light btnPer" type="button">                                      
                     <i class="fa fa-credit-card" aria-hidden="true" (click)="payu()"> Finalizar Compra </i>                    
                 </button>
-                <button *ngIf="!confirmado" class="endShopd" type="button" disabled>                                      
+                <button *ngIf="!confirmado" style="width: 100%;" class="btn btn-light btnPer" type="button" disabled>                                      
                     <i class="fa fa-credit-card" aria-hidden="true"> Finalizar Compra </i>                    
                 </button>
-                <button class="shop" routerLink='/catalogo'>
+                <button style="width: 100%;" class="btn btn-light btnPer mt-2" routerLink='/catalogo'>
                     <i class="fa fa-shopping-cart" aria-hidden="true"> Seguir comprando </i>                    
                 </button>
             </div>

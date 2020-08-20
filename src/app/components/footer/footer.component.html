@@ -1,19 +1,19 @@
 <section>
     <footer>
         <div class="ftr">
-            <div class="container">
+            <div class="container-fluid d-none d-lg-block d-xl-block">
                 <div class="row">
                     <div class="col-lg-12">
-                        <div class="row row-cols-1 row-cols-md-4 mt-5">
-                            <div class="col mb-4">
-                                <div class="card infor">
+                        <div class="row">
+                            <div class="col-sm-2">
+                                <div class="card">
                                     <div class="card-body text-center">
-                                        <img src="../../../assets/img/logo.png" class="img-fluid" alt="Responsive image" width="70%">
+                                        <img src="../../../assets/img/logo.png" class="img-fluid" alt="Responsive image">
                                     </div>
                                 </div>
                             </div>
-                            <div class="col mb-4">
-                                <div class="card infor">
+                            <div class="col-sm-2.7">
+                                <div class="card">
                                     <div class="card-body">
                                         <h5 class="card-title">AYUDA</h5>
                                         <p class="card-text"><i class="fa fa-chevron-right"></i> Pasos para comprar</p>
@@ -25,43 +25,112 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col mb-4">
-                                <div class="card infor">
+                            <div class="col-sm-3.7">
+                                <div class="card contacto">
                                     <div class="card-body">
                                         <h5 class="card-title">CONTACTO</h5>
-                                        <p class="card-text text-center" style="font-size: 15PX;">
+                                        <p class="card-text">
                                             Tienda Online Torreón Market.
                                         </p>
-                                        <p class="card-text" style="font-size: 15PX;">
+                                        <p class="card-text mt-4">
                                             <button class="icn"><i class="fa fa-phone"></i></button>&nbsp; 323 4902185
                                         </p>
-                                        <p class="card-text" style="font-size: 11PX;">
+                                        <p class="card-text">
                                             <button class="icn"><i class="fa fa-envelope"></i></button>&nbsp;servicioalcliente@torreonmarket.com
                                         </p>
-                                        <p class="card-text" style="font-size: 15PX;">
+                                        <p class="card-text">
                                             <button class="icn"><i class="fa fa-whatsapp"></i></button>&nbsp;whatsapp 323 4902185
                                         </p>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col mb-4">
-                                <div class="card infor">
+                            <div class="col-sm-4">
+                                <div class="card">
                                     <div class="card-body">
-                                        <h5 class="card-title">DÉJANOS TU CORREO</h5>
-                                        <p class="card-text" style="font-size: 15px; font-weight: lighter;">No te pierdas las novedades y el contenido para cuidarte a ti y a los que mas amas.</p>
-                                        <form class="form-inline" [formGroup]="subscriptionForm" (ngSubmit)="subscription(subscriptionForm.value)">
-                                            <input class="form-control susc" type="text" placeholder="Ingresa tu correo" formControlName="email" aria-label="Search">
-                                            <button class="btn btn-warning btftr" type="submit">SUSCRÍBETE</button>
-                                            <small class="eml" *ngIf="emailNoValido">Ingrese un email válido</small>
-                                        </form>
                                         <h5 class="card-title mt-3">SÍGUENOS EN:</h5>
                                         <p class="card-text">
                                             <button class="redes"><i class="fa fa-facebook fa-lg" aria-hidden="true"></i></button>
-                                            <button class="redes"><i class="fa fa-youtube fa-lg" aria-hidden="true"></i></button>
-                                            <button class="redes"><i class="fa fa-twitter fa-lg" aria-hidden="true"></i></button>
-                                            <button class="redes"><i class="fa fa-instagram fa-lg" aria-hidden="true"></i></button>
+                                            <button class="redes ml-2"><i class="fa fa-youtube fa-lg" aria-hidden="true"></i></button>
+                                            <button class="redes ml-2"><i class="fa fa-twitter fa-lg" aria-hidden="true"></i></button>
+                                            <button class="redes ml-2"><i class="fa fa-instagram fa-lg" aria-hidden="true"></i></button>
                                         </p>
+                                        <div>
+                                            <h5 class="card-title mt-4">DÉJANOS TU CORREO</h5>
+                                            <p class="card-text">No te pierdas las novedades y el contenido para cuidarte a ti y a los que mas amas.</p>
+                                            <form class="form-inline" [formGroup]="subscriptionForm" (ngSubmit)="subscription(subscriptionForm.value)">
+                                                <input class="form-control susc" type="text" placeholder="Ingresa tu correo" formControlName="email" aria-label="Search">
+                                                <button class="btn btn-light btnPer" type="submit">SUSCRÍBETE</button>
+                                                <small class="eml" *ngIf="emailNoValido">Ingrese un email válido</small>
+                                            </form>
+                                        </div>
                                     </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container d-xs-block d-sm-block d-md-block d-lg-none d-xl-none">
+                <div class="row row-cols-1 row-cols-md-3">
+                    <div class="col mb-4">
+                        <div class="card">
+                            <div class="card-body text-center">
+                                <img src="../../../assets/img/logo.png" width="70%" class="img-fluid" alt="Responsive image">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col mb-4">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">AYUDA</h5>
+                                <p class="card-text"><i class="fa fa-chevron-right"></i> Pasos para comprar</p>
+                                <p class="card-text"><i class="fa fa-chevron-right"></i> Formas de pago</p>
+                                <p class="card-text"><i class="fa fa-chevron-right"></i> Envíos y entregas</p>
+                                <p class="card-text"><i class="fa fa-chevron-right"></i> Mi cuenta</p>
+                                <p class="card-text"><i class="fa fa-chevron-right"></i> Preguntas frecuentes</p>
+                                <p class="card-text"><i class="fa fa-chevron-right"></i> Términos y condiciones</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col mb-4">
+                        <div class="card contacto">
+                            <div class="card-body">
+                                <h5 class="card-title">CONTACTO</h5>
+                                <p class="card-text">
+                                    Tienda Online Torreón Market.
+                                </p>
+                                <p class="card-text mt-4">
+                                    <button class="icn"><i class="fa fa-phone"></i></button>&nbsp; 323 4902185
+                                </p>
+                                <p class="card-text" style="font-size: 14px;">
+                                    <button class="icn"><i class="fa fa-envelope"></i></button>&nbsp;servicioalcliente@torreonmarket.com
+                                </p>
+                                <p class="card-text">
+                                    <button class="icn"><i class="fa fa-whatsapp"></i></button>&nbsp;whatsapp 323 4902185
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col mb-4">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title mt-3">SÍGUENOS EN:</h5>
+                                <p class="card-text">
+                                    <button class="redes"><i class="fa fa-facebook fa-lg" aria-hidden="true"></i></button>
+                                    <button class="redes ml-2"><i class="fa fa-youtube fa-lg" aria-hidden="true"></i></button>
+                                    <button class="redes ml-2"><i class="fa fa-twitter fa-lg" aria-hidden="true"></i></button>
+                                    <button class="redes ml-2"><i class="fa fa-instagram fa-lg" aria-hidden="true"></i></button>
+                                </p>
+                                <div>
+                                    <h5 class="card-title mt-4">DÉJANOS TU CORREO</h5>
+                                    <p class="card-text">No te pierdas las novedades y el contenido para cuidarte a ti y a los que mas amas.</p>
+                                    <form class="form-inline" [formGroup]="subscriptionForm" (ngSubmit)="subscription(subscriptionForm.value)">
+                                        <input class="form-control susc" type="text" placeholder="Ingresa tu correo" formControlName="email" aria-label="Search">
+                                        <div class="text-center" style="width: 100%;">
+                                            <button class="btn btn-light btnPer mt-2" type="submit">SUSCRÍBETE</button>
+                                        </div>
+                                        <small class="eml" *ngIf="emailNoValido">Ingrese un email válido</small>
+                                    </form>
                                 </div>
                             </div>
                         </div>
@@ -85,18 +154,24 @@
                             <p style="font-size: 13px; margin-right: 20px; ">
                                 Aviso legal
                             </p>
-                            <p style="font-size: 13px; ">
+                            <p style="font-size: 13px; margin-right: 20px; ">
                                 Política de Privacidad
+                            </p>
+                            <p style="font-size: 13px; ">
+                                Política de Cookies
                             </p>
                         </div>
                     </div>
                     <div class="col-lg-4 mt-3 d-xs-block d-sm-block d-md-block d-lg-none d-xl-none">
                         <div class="row text-center">
-                            <p style="font-size: 13px; margin-right: 40px; margin-left: 20px;">
+                            <p style="font-size: 13px; margin-right: 20px; margin-left: 10px;">
                                 Aviso legal
                             </p><br>
-                            <p style="font-size: 13px; ">
+                            <p style="font-size: 13px; margin-right: 20px; ">
                                 Política de Privacidad
+                            </p>
+                            <p style="font-size: 13px; ">
+                                Política de Cookies
                             </p>
                         </div>
                     </div>

@@ -56,11 +56,11 @@
         </ul>
     </div>
     <div class="user" *ngIf="user$ | async as user;else showLogin">
-        <a class="btn btn-primary" style="color: #fff;" routerLinkActive="router-link-active">{{user.email}}</a>
+        <button class="btn btn-light btnSesion">{{user.email}}</button>
     </div>
     <ng-template #showLogin>
-        <a routerLinkActive="active" data-toggle="modal" data-target="#myModal">
-            <a class="btn btn-primary" style="color: #fff;">INGRESAR</a>
+        <a data-toggle="modal" data-target="#myModal">
+            <button class="btn btn-light btnSesion">INGRESAR</button>
         </a>
     </ng-template>
 </nav>

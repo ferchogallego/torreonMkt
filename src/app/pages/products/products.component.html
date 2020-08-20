@@ -2,13 +2,17 @@
 <div>
     <div class="container">
         <div class="col-lg-12 mt-5">
-            <h3 class="titulo">Productos por categoría</h3>
+            <h3 class="titulo">Productos por Categoría</h3>
             <hr>
             <div class="row">
                 <div class="col-lg-3 izq">
                     <h5 class="titulo mt-3">Filtrar por categoría:</h5>
                     <hr>
                     <div class="col-lg-12">
+                        <form class="form-inline mt-2 mb-2">
+                            <input class="form-control sch" [(ngModel)]="filterProducto" name="filterProducto" type="search" placeholder="Buscar producto..." aria-label="Search">
+                            <button class="btnshc" (click)="searchProductActivate()"><i class="fa fa-search fa-lg"></i></button>
+                        </form>
                         <div class="row">
                             <div class="col-lg-6 categ">
                                 <button class="btn btn-primary btn-block" (click)="loadByCategory('Belleza y cuidado personal')">Belleza y cuidado</button>
@@ -29,14 +33,36 @@
 
                 </div>
                 <div class="col-lg-9">
-                    <div class="row row-cols-1 row-cols-md-4">
+                    <div *ngIf="!busqueda" class="row row-cols-1 row-cols-md-4">
                         <div class="col mb-3" *ngFor="let item of productos">
-                            <div class="card games" (click)="openProduct(item.id)">
+                            <div class="card h-100 games" (click)="openProduct(item.id)">
                                 <img [src]="item.imagen" class="card-img-top prd" alt="...">
                                 <div class="card-body">
-                                    <p class="card-title">{{item.nombre | titlecase}}</p>
-                                    <p class="card-text"><b>{{item.precio | currency}}</b></p>
-                                    <button class="compra"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Comprar</button>
+                                    <h5>{{item.nombre | titlecase}}</h5>
+                                    <h5>{{item.presentacion | titlecase}}</h5>
+                                </div>
+                                <div class="card-footer">
+                                    <div class="text-center mb-2">
+                                        <h4 class="card-text"><b>${{item.precio | number}}</b></h4>
+                                    </div>
+                                    <button class="btn btn-light btnPer" style="width: 100%;"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Comprar</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div *ngIf="busqueda" class="row row-cols-1 row-cols-md-4">
+                        <div class="col mb-3" *ngFor="let item of lista | filter:filterProducto">
+                            <div class="card h-100 games" (click)="openProduct(item.id)">
+                                <img [src]="item.imagen" class="card-img-top prd" alt="...">
+                                <div class="card-body">
+                                    <h5>{{item.nombre | titlecase}}</h5>
+                                    <h5>{{item.presentacion | titlecase}}</h5>
+                                </div>
+                                <div class="card-footer">
+                                    <div class="text-center mb-2">
+                                        <h4 class="card-text"><b>${{item.precio | number}}</b></h4>
+                                    </div>
+                                    <button class="btn btn-light btnPer" style="width: 100%;"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Comprar</button>
                                 </div>
                             </div>
                         </div>

@@ -2,7 +2,7 @@
 <div class="container mt-5">
     <div class="col-lg-12">
         <div class="text-center">
-            <h3>Categorías de nuestros productos</h3>
+            <h3>Categorías de Nuestros Productos</h3>
             <hr>
         </div>
         <div class="row row-cols-1 row-cols-md-4 mt-5">
@@ -11,7 +11,9 @@
                     <img [src]="item.imagen" class="card-img-top" alt="...">
                     <div class="card-body text-center">
                         <h5 class="card-title">{{item.nombre | titlecase}}</h5>
-                        <button class="btn btn-info btn-block" (click)="openProducts(item.nombre)">Ver productos</button>
+                    </div>
+                    <div class="card-footer">
+                        <button class="btn btn-light btnPer" style="width: 100%;" (click)="openProducts(item.nombre)">VER PRODUCTOS</button>
                     </div>
                 </div>
             </div>

@@ -30,6 +30,9 @@
 
 .productos {
     background-color: #9cc3e4;
+    h4 {
+        color: #584604;
+    }
     .card {
         background-color: #00000000;
         border: none;
@@ -70,15 +73,6 @@
     }
 }
 
-.btnPer {
-    background-color: #ffd966;
-    border: solid;
-    border-color: #584604;
-    border-radius: 10px;
-    color: #584604;
-    font-weight: bold;
-}
-
 .seccion {
     background-image: url(../../../assets/img/fondoDiagonal.jpg);
     background-size: cover;
@@ -111,6 +105,9 @@
         .susc {
             width: 70%;
         }
+    }
+    .scbrte {
+        width: 100%;
     }
 }
 
