@@ -64,4 +64,12 @@ export class AuthService {
   loadInfoUser(idUser: string){
     return this.db.collection('users').doc(idUser).valueChanges();
   }
+
+  resetPassword(email: string){
+    try {
+      return this.afAuth.sendPasswordResetEmail(email);
+    } catch (error) {
+      console.log(error);
+    }
+  }
 }

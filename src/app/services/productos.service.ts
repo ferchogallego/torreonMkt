@@ -18,6 +18,9 @@ export class ProductosService {
   // búsqueda desde barra
   termino: string;
 
+  // barra cookies
+  ckies = true;
+
   private filePath: any;
   private downloadURL: string;
 
@@ -93,7 +96,8 @@ getProductById(id: string){
   }
 
   loadAllProducts(){
-    return this.db.collection('productos')
+    return this.db.collection('productos', ref => ref
+                  .orderBy('nombre', 'asc'))
                   .snapshotChanges()
                   .pipe(
                     map(actions =>

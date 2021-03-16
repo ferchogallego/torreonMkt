@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import Swal from 'sweetalert2';
 import { SubscriptionsService } from 'src/app/services/subscriptions.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-footer',
@@ -18,7 +19,8 @@ export class FooterComponent implements OnInit {
     return this.subscriptionForm.get('email').invalid && this.subscriptionForm.get('email').touched;
   }
 
-  constructor(private suscripcion: SubscriptionsService) { }
+  constructor(private suscripcion: SubscriptionsService,
+              private router: Router) { }
 
   ngOnInit(): void {
   }
@@ -62,6 +64,10 @@ export class FooterComponent implements OnInit {
                         );
                       }
                     });
+  }
+
+  openHelp(item: string){
+    this.router.navigate([`ayuda/${item}`]);
   }
 
 }

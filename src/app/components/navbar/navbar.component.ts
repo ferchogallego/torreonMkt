@@ -44,4 +44,7 @@ export class NavbarComponent implements OnInit {
       this.router.navigate(['/catalogo']);
     }
    }
+   openHelp(item: string){
+    this.router.navigate([`ayuda/${item}`]);
+  }
 }

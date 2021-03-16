@@ -6,9 +6,11 @@
         .btnshc {
             background-color: #6d544d;
             border: none;
+            border-radius: 50%;
             color: #fff;
-            border-radius: 5px;
             height: 37px;
+            width: 37px;
+            margin-left: -13px;
         }
         .rng {
             background-color: #364d6a;
@@ -51,7 +53,7 @@
             margin-right: auto;
             position: relative;
             width: auto;
-            height: 200px;
+            height: 150px;
         }
         .compra {
             width: 100%;

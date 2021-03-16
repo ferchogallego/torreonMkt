@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { ShopService } from '../../services/shop.service';
+import { window } from 'rxjs/operators';
 
 @Component({
   selector: 'app-navsec',
@@ -168,6 +169,14 @@ export class NavsecComponent implements OnInit {
   viewPassInActive(){
     this.passwordView = false;
     // console.log(this.passwordView);
+  }
+
+  contrasena(){
+    this.router.navigate(['contrasena']);
+  }
+
+  openHelp(item: string){
+    this.router.navigate([`ayuda/${item}`]);
   }
 
 }

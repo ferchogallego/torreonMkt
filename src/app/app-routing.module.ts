@@ -23,6 +23,9 @@ import { AdminGuard } from './shared/guards/admin.guard';
 import { RegisterComponent } from './pages/register/register.component';
 import { AccessComponent } from './admin/access/access.component';
 import { PurchasesComponent } from './pages/purchases/purchases.component';
+import { NosotrosComponent } from './pages/nosotros/nosotros.component';
+import { AyudaComponent } from './pages/ayuda/ayuda.component';
+import { ContrasenaComponent } from './pages/contrasena/contrasena.component';
 
 
 
@@ -49,6 +52,9 @@ const routes: Routes = [
   { path: 'suscriptores', component: SuscriptoresComponent, canActivate: [AdminGuard]},
   { path: 'mensajes', component: MensajesComponent, canActivate: [AdminGuard]},
   { path: 'registro', component: RegisterComponent},
+  { path: 'nosotros', component: NosotrosComponent},
+  { path: 'contrasena', component: ContrasenaComponent},
+  { path: 'ayuda/:id', component: AyudaComponent},
   { path: '**', pathMatch: 'full', redirectTo: '/home'}
 ];
 

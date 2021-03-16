@@ -12,6 +12,7 @@ import Swal from 'sweetalert2';
 })
 export class PortadaComponent implements OnInit {
 
+  ckies: boolean;
   cat: any;
   subscriptionForm = new FormGroup ({
     email: new FormControl('', [Validators.required, Validators.pattern('[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$')]),
@@ -34,6 +35,12 @@ export class PortadaComponent implements OnInit {
               private suscripcion: SubscriptionsService) { }
 
   ngOnInit(): void {
+    if (this.productoSvc.ckies) {
+      this.ckies = true;
+    }
+    if (!this.productoSvc.ckies) {
+      this.ckies = false;
+    }
     this.productoSvc.loadCategoriesIndex()
                     .subscribe(res => {
                       this.cat = res;
@@ -114,6 +121,11 @@ export class PortadaComponent implements OnInit {
                         showCloseButton: true
                       });
                     });
+  }
+
+  closeCookiesCard(){
+    this.ckies = false;
+    this.productoSvc.ckies = false;
   }
 
 }

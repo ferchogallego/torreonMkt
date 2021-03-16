@@ -1,0 +1,21 @@
+<app-navsec></app-navsec>
+<div class="container mt-5">
+    <br>
+    <h3 style="color:  #6C534C ;"><img src="../../../assets/img/password.png" alt=""> Recuperar o Cambiar Contraseña de Usuario:</h3>
+    <hr>
+    <div class="col-12 text-center" style="color:  #6C534C ;">
+        <img src="../../../assets/img/logoTorreon.png" width="200" alt=""><br><br>
+        <h4>Ayuda para restablecer o cambiar contraseña del usuario registrado:</h4><br>
+        <div class="col-6 text-left">
+            <form [formGroup]="passwordForm" (ngSubmit)="cambiarContrasena(passwordForm.value)">
+                <h5>Ingrese su correo electŕonico:</h5>
+                <input class="form-control pass" type="text" placeholder="Ingrese su correo registrado" formControlName="email" [class.is-invalid]="emailNoValido">
+                <small class="text-danger" *ngIf="emailNoValido">Ingrese un email válido</small>
+                <br>
+                <button type="submit" class="btn btn-dark btnIngreso">Solicitar Cambio Contraseña</button>
+            </form>
+        </div>
+        <br><br><br>
+    </div>
+</div>
+<app-footer></app-footer>

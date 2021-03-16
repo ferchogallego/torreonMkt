@@ -16,12 +16,12 @@
                                 <div class="card">
                                     <div class="card-body">
                                         <h5 class="card-title">AYUDA</h5>
-                                        <p class="card-text"><i class="fa fa-chevron-right"></i> Pasos para comprar</p>
-                                        <p class="card-text"><i class="fa fa-chevron-right"></i> Formas de pago</p>
-                                        <p class="card-text"><i class="fa fa-chevron-right"></i> Envíos y entregas</p>
-                                        <p class="card-text"><i class="fa fa-chevron-right"></i> Mi cuenta</p>
-                                        <p class="card-text"><i class="fa fa-chevron-right"></i> Preguntas frecuentes</p>
-                                        <p class="card-text"><i class="fa fa-chevron-right"></i> Términos y condiciones</p>
+                                        <p class="card-text help" (click)="openHelp('pasos')"><i class="fa fa-chevron-right"></i> Pasos para comprar</p>
+                                        <p class="card-text help" (click)="openHelp('formas')"><i class="fa fa-chevron-right"></i> Formas de pago</p>
+                                        <p class="card-text help" (click)="openHelp('envios')"><i class="fa fa-chevron-right"></i> Envíos y entregas</p>
+                                        <p class="card-text help" (click)="openHelp('cuenta')"><i class="fa fa-chevron-right"></i> Mi cuenta</p>
+                                        <p class="card-text help" (click)="openHelp('preguntas')"><i class="fa fa-chevron-right"></i> Preguntas frecuentes</p>
+                                        <p class="card-text help"><i class="fa fa-chevron-right"></i> Términos y condiciones</p>
                                     </div>
                                 </div>
                             </div>
@@ -83,12 +83,12 @@
                         <div class="card">
                             <div class="card-body">
                                 <h5 class="card-title">AYUDA</h5>
-                                <p class="card-text"><i class="fa fa-chevron-right"></i> Pasos para comprar</p>
-                                <p class="card-text"><i class="fa fa-chevron-right"></i> Formas de pago</p>
-                                <p class="card-text"><i class="fa fa-chevron-right"></i> Envíos y entregas</p>
-                                <p class="card-text"><i class="fa fa-chevron-right"></i> Mi cuenta</p>
-                                <p class="card-text"><i class="fa fa-chevron-right"></i> Preguntas frecuentes</p>
-                                <p class="card-text"><i class="fa fa-chevron-right"></i> Términos y condiciones</p>
+                                <p class="card-text help" (click)="openHelp('pasos')"><i class="fa fa-chevron-right"></i> Pasos para comprar</p>
+                                <p class="card-text help"><i class="fa fa-chevron-right"></i> Formas de pago</p>
+                                <p class="card-text help"><i class="fa fa-chevron-right"></i> Envíos y entregas</p>
+                                <p class="card-text help"><i class="fa fa-chevron-right"></i> Mi cuenta</p>
+                                <p class="card-text help"><i class="fa fa-chevron-right"></i> Preguntas frecuentes</p>
+                                <p class="card-text help"><i class="fa fa-chevron-right"></i> Términos y condiciones</p>
                             </div>
                         </div>
                     </div>
@@ -137,10 +137,10 @@
                     </div>
                 </div>
             </div>
-            <div class="col-lg-12 ftrr">
+            <div class="col-lg-12 ftrr d-none d-lg-block d-xl-block">
                 <div class="row">
                     <div class="col-lg-4 mt-3">
-                        <p style="font-size: 13px;">
+                        <p style="font-size: 11px;">
                             Copyright <i class="fa fa-copyright" aria-hidden="true"></i> 2020 Torreón Market - reservados todos los derechos.
                         </p>
                     </div>
@@ -149,31 +149,27 @@
                             Desarrollado por <a href="https://itssoluciones.com/inicioIts/" target="blank">ITS Soluciones</a>
                         </p>
                     </div>
-                    <div class="col-lg-4 mt-3 d-none d-lg-block d-xl-block">
+                    <div class="col-lg-4 mt-3">
                         <div class="row text-right">
                             <p style="font-size: 13px; margin-right: 20px; ">
-                                Aviso legal
+
                             </p>
                             <p style="font-size: 13px; margin-right: 20px; ">
-                                Política de Privacidad
+
                             </p>
                             <p style="font-size: 13px; ">
-                                Política de Cookies
+
                             </p>
                         </div>
                     </div>
-                    <div class="col-lg-4 mt-3 d-xs-block d-sm-block d-md-block d-lg-none d-xl-none">
-                        <div class="row text-center">
-                            <p style="font-size: 13px; margin-right: 20px; margin-left: 10px;">
-                                Aviso legal
-                            </p><br>
-                            <p style="font-size: 13px; margin-right: 20px; ">
-                                Política de Privacidad
-                            </p>
-                            <p style="font-size: 13px; ">
-                                Política de Cookies
-                            </p>
-                        </div>
+                </div>
+            </div>
+            <div class="col-lg-12 ftrr d-xs-block d-sm-block d-md-block d-lg-none d-xl-none">
+                <div class="row">
+                    <div class="col-lg-12 mt-2 text-center">
+                        <p style="font-size: 11px;">
+                            Copyright <i class="fa fa-copyright" aria-hidden="true"></i> 2020 Torreón Market - reservados todos los derechos. Desarrollado por <a href="https://itssoluciones.com/inicioIts/" target="blank">ITS Soluciones</a>
+                        </p>
                     </div>
                 </div>
             </div>

@@ -17,8 +17,8 @@
     </div>
 </div>
 <nav class="navbar navbar-expand-lg navbar-light bg-light menmovil">
-    <a class="navbar-brand" href="#">
-        <img src="../../../assets/img/logoTorreon.png" width="130" alt="" loading="lazy">
+    <a class="navbar-brand" [routerLink]="['/home']">
+        <img src="../../../assets/img/logo2.png" width="150" alt="" loading="lazy">
     </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -27,7 +27,7 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav ml-auto">
             <li class="nav-item active">
-                <a class="nav-link" href="#">Inicio <span class="sr-only">(current)</span></a>
+                <a class="nav-link" [routerLink]="['/home']">Inicio <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" [routerLink]="['/catalogo']">Productos</a>
@@ -36,10 +36,25 @@
                 <a class="nav-link" [routerLink]="['/blog']">Blog</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Nosotros</a>
+                <a class="nav-link" [routerLink]="['/nosotros']">Nosotros</a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Ayuda</a>
+            <li class="nav-item dropdown hlp">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Ayuda
+                </a>
+                <div class="dropdown-menu dmnu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item dpitm" (click)="openHelp('pasos')">Pasos Para Comprar</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item dpitm" (click)="openHelp('formas')">Formas de Pago</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item dpitm" (click)="openHelp('envios')">Envíos y Entregas</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item dpitm" (click)="openHelp('cuenta')">Mi Cuenta</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item dpitm" (click)="openHelp('preguntas')">Preguntas Frecuentes</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item dpitm">Términos y Condiciones</a>
+                </div>
             </li>
             <li class="nav-item" *ngIf="user$ | async as user;">
                 <a class="nav-link" routerLink="/info"><i class="fa fa-shopping-basket"></i> Mis compras</a>
@@ -53,19 +68,17 @@
                     <span class="badge badge-warning intermitentesec">{{pedidos}}</span>
                 </button>
             </li>
+            <div class="user" *ngIf="user$ | async as user;else showLogin">
+                <button class="btn btn-light btnSesion mt-2" data-toggle="modal" data-target="#sesion">{{user.email}}</button>
+            </div>
+            <ng-template #showLogin>
+                <a data-toggle="modal" data-target="#myModal">
+                    <button class="btn btn-light btnSesion mt-1">INGRESAR</button>
+                </a>
+            </ng-template>
         </ul>
     </div>
-    <div class="user" *ngIf="user$ | async as user;else showLogin">
-        <button class="btn btn-light btnSesion">{{user.email}}</button>
-    </div>
-    <ng-template #showLogin>
-        <a data-toggle="modal" data-target="#myModal">
-            <button class="btn btn-light btnSesion">INGRESAR</button>
-        </a>
-    </ng-template>
 </nav>
-
-
 <div id="myModal" class="modal fade">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -78,7 +91,7 @@
                                     <h4><b>Inicio de Sesión</b></h4>
                                 </div>
                                 <div class="col-6 text-right">
-                                    <img src="../../../assets/img/logoTorreon.png" width="100" alt="">
+                                    <img src="../../../assets/img/logo2.png" width="100" alt="">
                                 </div>
                             </div>
                             <hr>
@@ -105,9 +118,12 @@
                                         <small class="spn" *ngIf="passwordNoValido">La contraseña debe ser de 8 caracteres mínimo.</small>
                                     </div>
                                 </div>
-                                <button type="submit" class="btn btn-dark btn-block"><i class="fa fa-sign-in" aria-hidden="true"></i> INGRESAR</button>
-                                <button type="button" class="btn btn-outline-dark btn-block" [routerLink]="['/registro']" data-dismiss="modal"><i class="fa fa-user-circle" aria-hidden="true"></i> CREAR CUENTA</button>
-                                <br>
+                                <button type="submit" class="btn btn-dark btnIngreso "><i class="fa fa-sign-in" aria-hidden="true"></i> INGRESAR</button>
+                                <button type="button" class="btn btn-outline-dark btnIngreso mt-2" [routerLink]="['/registro']" data-dismiss="modal"><i class="fa fa-user-circle" aria-hidden="true"></i> CREAR CUENTA</button>
+                                <div class="col-12 text-center mt-2">
+                                    <h5 style="color: #2f5496;cursor: pointer;" (click)="contrasena()" data-dismiss="modal">¿Olvidaste tu Contraseña?</h5>
+                                </div>
+                                <br><br>
                                 <h5>Ingresa directamente con:</h5>
                                 <hr>
                                 <div class="col-12">
@@ -125,6 +141,37 @@
                                     </div>
                                 </div>
                             </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="sesion" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel" style="color:  #6C534C;">Sesión de Usuario</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+            </div>
+            <div class="modal-body">
+                <div class="col-12">
+                    <div class="row">
+                        <div class="col-6 text-center">
+                            <img src="../../../assets/img/logout.png" alt="">
+                            <br>
+                            <br>
+                            <button class="btn btn-dark btnIngreso" (click)="onLogout()" data-dismiss="modal" aria-label="Close">Cerrar Sesión</button>
+                        </div>
+                        <div class="col-6 text-center">
+                            <img src="../../../assets/img/password.png" alt="">
+                            <br>
+                            <br>
+                            <button class="btn btn-dark btnIngreso" (click)="contrasena()" data-dismiss="modal" aria-label="Close">Cambiar Contraseña</button>
                         </div>
                     </div>
                 </div>

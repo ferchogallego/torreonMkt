@@ -13,6 +13,18 @@
             margin: 2rem;
         }
     }
+    .regMovil {
+        background-color: rgb(194, 230, 241);
+        border: solid;
+        border-width: 1px;
+        border-color: rgb(136, 135, 135);
+        width: 100%;
+        margin-left: auto;
+        margin-right: auto;
+        .regForm {
+            margin: 2rem;
+        }
+    }
     .pass {
         width: 80%;
         margin-left: 15px;
@@ -22,5 +34,15 @@
         color: #364d6a;
         border: none;
         background-color: rgb(194, 230, 241);
+    }
+    .btnIngreso {
+        width: 100%;
+        background-color: #ffd966;
+        border: solid;
+        border-width: 1px;
+        border-color: #020d4d;
+        border-radius: 5px;
+        color: #584604;
+        font-weight: bold;
     }
 }

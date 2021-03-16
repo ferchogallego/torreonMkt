@@ -42,9 +42,14 @@
 
 .navbar {
     background-color: #9cc3e4 !important;
-    li a {
+    li,
+    a {
         color: #6c534c !important;
-        font-size: 20px;
+        font-size: 16px;
+        font-weight: bold;
+        display: block;
+        text-decoration: none;
+        padding: 7px 10px;
     }
     a:hover {
         border: solid;
@@ -98,4 +103,29 @@
     border-color: #020d4d;
     border-radius: 5px;
     color: #584604;
+}
+
+.btnIngreso {
+    width: 100%;
+    background-color: #ffd966;
+    border: solid;
+    border-width: 1px;
+    border-color: #020d4d;
+    border-radius: 5px;
+    color: #584604;
+    font-weight: bold;
+}
+
+.hlp {
+    .dmnu {
+        background-color: #9cc3e4;
+    }
+    .dpitm {
+        color: #fff;
+        cursor: pointer;
+    }
+    .dpitm:hover {
+        color: #000;
+        transition: 700ms;
+    }
 }

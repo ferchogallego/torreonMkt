@@ -9,6 +9,7 @@ import {ProductI} from '../../shared/product.interface';
   styleUrls: ['./products.component.scss']
 })
 export class ProductsComponent implements OnInit {
+  categorias = false;
   busqueda = false;
   filterProducto = '';
   rango = '0';
@@ -38,7 +39,12 @@ export class ProductsComponent implements OnInit {
                    });
   }
 
+  activarCategorias(){
+    this.categorias = true;
+  }
+
   loadByCategory(categoria: string){
+    this.categorias = false;
     this.busqueda = false;
     this.productos = [];
     const id = categoria;
@@ -53,6 +59,7 @@ export class ProductsComponent implements OnInit {
                           const catsel = prd.categoria[a];
                           if (catsel === id) {
                             this.productos.push(prd);
+                            this.categorias = false;
                           }
                         }
                       }
@@ -69,6 +76,7 @@ export class ProductsComponent implements OnInit {
                      for (let i = 0; i < this.lista.length; i++) {
                       const prd = this.lista[i];
                       this.productos.push(prd);
+                      this.categorias = false;
                      }
                    });
   }

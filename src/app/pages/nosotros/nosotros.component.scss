@@ -1,0 +1,40 @@
+.line {
+    border: 0;
+    height: 3px;
+    background-color: #3e7bb1;
+    width: 80%;
+}
+
+.card {
+    p,
+    h2 {
+        color: #584604;
+    }
+}
+
+.txto {
+    width: 100%;
+}
+
+.contenido {
+    margin-top: 5rem;
+    .card {
+        border: none;
+    }
+    .line2 {
+        border: 0;
+        height: 3px;
+        background-color: #3e7bb1;
+    }
+    color: #584604;
+}
+
+.nosotros2 {
+    margin-top: 6rem;
+    .line {
+        border: 0;
+        height: 3px;
+        background-color: #3e7bb1;
+        width: 80%;
+    }
+}

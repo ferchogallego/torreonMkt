@@ -35,6 +35,9 @@ import { MensajesComponent } from './admin/mensajes/mensajes.component';
 import { RegisterComponent } from './pages/register/register.component';
 import { AccessComponent } from './admin/access/access.component';
 import { PurchasesComponent } from './pages/purchases/purchases.component';
+import { NosotrosComponent } from './pages/nosotros/nosotros.component';
+import { AyudaComponent } from './pages/ayuda/ayuda.component';
+import { ContrasenaComponent } from './pages/contrasena/contrasena.component';
 
 @NgModule({
   declarations: [
@@ -64,7 +67,10 @@ import { PurchasesComponent } from './pages/purchases/purchases.component';
     MensajesComponent,
     RegisterComponent,
     AccessComponent,
-    PurchasesComponent
+    PurchasesComponent,
+    NosotrosComponent,
+    AyudaComponent,
+    ContrasenaComponent
   ],
   imports: [
     BrowserModule,

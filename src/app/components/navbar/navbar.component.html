@@ -20,12 +20,12 @@
             <div class="row">
                 <div class="col-lg-5">
                     <div class="row">
-                        <img src="../../../assets/img/logoTorreon.png" class="img-fluid mt-4 ml-5" alt="Responsive image" width="250">
+                        <img [routerLink]="['/home']" routerLinkActive="router-link-active" src="../../../assets/img/logoTorreon.png" class="img-fluid mt-4 ml-5" alt="Responsive image" width="250">
                     </div>
                 </div>
                 <div class="col-lg-7 mt-5 sch">
                     <form id="buscar" [formGroup]="searchForm" class="form-inline" (ngSubmit)="OnSearch(searchForm.value.palabra)">
-                        <input type="text" name="buscar" value="" class="form-control" placeholder="Buscar" formControlName="palabra" autocomplete="off" />
+                        <input type="text" value="" class="form-control" placeholder="Ej...colágeno, artritis, huesos" formControlName="palabra" autocomplete="off" />
                         <button type="submit" class="btn btn-light"><i class="fa fa-search" aria-hidden="true"></i></button>
                         <button class="car" [routerLink]="['/solicitudes']" routerLinkActive="router-link-active">
                             <i class="fa fa-shopping-cart fa-lg" aria-hidden="true"></i>
@@ -53,13 +53,28 @@
                         <a class="nav-link" [routerLink]="['/blog']">Blog</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Nosotros</a>
+                        <a class="nav-link" [routerLink]="['/nosotros']">Nosotros</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#contacto">Contacto</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Ayuda</a>
+                    <li class="nav-item dropdown hlp">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          Ayuda
+                        </a>
+                        <div class="dropdown-menu dmnu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item dpitm" (click)="openHelp('pasos')">Pasos Para Comprar</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item dpitm" (click)="openHelp('formas')">Formas de Pago</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item dpitm" (click)="openHelp('envios')">Envíos y Entregas</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item dpitm" (click)="openHelp('cuenta')">Mi Cuenta</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item dpitm" (click)="openHelp('preguntas')">Preguntas Frecuentes</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item dpitm">Términos y Condiciones</a>
+                        </div>
                     </li>
                 </ul>
             </div>
@@ -88,20 +103,39 @@
                     <a class="nav-link" [routerLink]="['/blog']">Blog</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Nosotros</a>
+                    <a class="nav-link" [routerLink]="['/nosotros']">Nosotros</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="home#contacto">Contacto</a>
+                    <a class="nav-link" href="#contacto">Contacto</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Ayuda</a>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      Ayuda
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" (click)="openHelp('pasos')">Pasos Para Comprar</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" (click)="openHelp('formas')">Formas de Pago</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" (click)="openHelp('envios')">Envíos y Entregas</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" (click)="openHelp('cuenta')">Mi Cuenta</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" (click)="openHelp('preguntas')">Preguntas Frecuentes</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item">Términos y Condiciones</a>
+                    </div>
                 </li>
             </ul>
             <form class="form-inline">
-                <input class="form-control sch" type="search" placeholder="Buscar Productos" aria-label="Search">
-                <button class="btn btn-success but" type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
+                <input type="text" value="" class="form-control sch" placeholder="Ej...colágeno, artritis, huesos" formControlName="palabra" autocomplete="off" />
+                <button type="submit" class="btn btn-light but"><i class="fa fa-search" aria-hidden="true"></i></button><br>
             </form>
-            <button class="car2 mt-1"><i class="fa fa-shopping-cart fa-lg" aria-hidden="true"></i></button>
+            <div class="mt-2">
+                <button class="car2" [routerLink]="['/solicitudes']" routerLinkActive="router-link-active">
+                <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+            </button>
+            </div>
         </div>
     </nav>
 </div>

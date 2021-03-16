@@ -1,6 +1,6 @@
 <app-navsec></app-navsec>
 <div>
-    <div class="container">
+    <div class="container-fluid cntiner">
         <div class="col-lg-12 mt-5">
             <h3 class="titulo">Productos por Categoría</h3>
             <hr>
@@ -8,24 +8,51 @@
                 <div class="col-lg-3 izq">
                     <h5 class="titulo mt-3">Filtrar por categoría:</h5>
                     <hr>
-                    <div class="col-lg-12">
+                    <div class="col-lg-12 d-none d-lg-block d-xl-block">
                         <form class="form-inline mt-2 mb-2">
-                            <input class="form-control sch" [(ngModel)]="filterProducto" name="filterProducto" type="search" placeholder="Buscar producto..." aria-label="Search">
-                            <button class="btnshc" (click)="searchProductActivate()"><i class="fa fa-search fa-lg"></i></button>
+                            <input class="form-control sch" [(ngModel)]="filterProducto" name="filterProducto" type="search" placeholder="Ej...colágeno, artritis, huesos..." aria-label="Search">
+                            <button class="btnshc" (click)="searchProductActivate()"><i class="fa fa-search"></i></button>
                         </form>
                         <div class="row">
                             <div class="col-lg-6 categ">
-                                <button class="btn btn-primary btn-block" (click)="loadByCategory('Belleza y cuidado personal')">Belleza y cuidado</button>
-                                <button class="btn btn-primary btn-block" (click)="loadByCategory('Tratamientos para la salud')">Tratamientos de salud</button>
-                                <button class="btn btn-primary btn-block" (click)="loadByCategory('Control de peso y desintoxicación')">Control de peso</button>
-                                <button class="btn btn-primary btn-block" (click)="loadByCategory('Alimentos y especies')">Alimentos y especies</button>
-                                <button class="btn btn-primary btn-block" (click)="loadByCategory('Vitaminas y suplementos')">vitaminas y suplementos</button>
+                                <button class="btn btn-primary btn-block" (click)="loadByCategory('Belleza y cuidado personal')">Belleza y Cuidado</button>
+                                <button class="btn btn-primary btn-block" (click)="loadByCategory('Tratamientos para la salud')">Tratamientos de Salud</button>
+                                <button class="btn btn-primary btn-block" (click)="loadByCategory('Control de peso y desintoxicación')">Control de Peso</button>
+                                <button class="btn btn-primary btn-block" (click)="loadByCategory('Alimentos y especies')">Alimentos y Especies</button>
+                                <button class="btn btn-primary btn-block" (click)="loadByCategory('Cuidado Preventivo')">Cuidado Preventivo</button>
+                                <button class="btn btn-primary btn-block" (click)="loadByCategory('Vitaminas y suplementos')">Vitaminas y Suplementos</button>
                             </div>
                             <div class="col-lg-6 categ">
-                                <button class="btn btn-primary btn-block" (click)="loadByCategory('Bienestar sexual')">Bienestar sexual</button>
-                                <button class="btn btn-primary btn-block" (click)="loadByCategory('Aceites esenciales')">Aceites esenciales</button>
-                                <button class="btn btn-primary btn-block" (click)="loadByCategory('Plantas medicinales')">Plantas medicinales</button>
-                                <button class="btn btn-primary btn-block" (click)="loadByCategory('Suplementos deportivos')">Suplementos deportivos</button>
+                                <button class="btn btn-primary btn-block" (click)="loadByCategory('Bienestar sexual')">Bienestar Sexual</button>
+                                <button class="btn btn-primary btn-block" (click)="loadByCategory('Aceites esenciales')">Aceites Esenciales</button>
+                                <button class="btn btn-primary btn-block" (click)="loadByCategory('Plantas medicinales')">Plantas Medicinales</button>
+                                <button class="btn btn-primary btn-block" (click)="loadByCategory('Suplementos deportivos')">Suplementos Deportivos</button>
+                                <button class="btn btn-primary btn-block" (click)="loadByCategory('Salud de los Niños')">Salud de los Niños</button>
+                                <button class="btn btn-primary btn-block" (click)="allProducts()">Todos los productos</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-12 d-xs-block d-sm-block d-md-block d-lg-none d-xl-none">
+                        <form class="form-inline mt-2 mb-2">
+                            <input class="form-control sch" [(ngModel)]="filterProducto" name="filterProducto" type="search" placeholder="Ej...colágeno, artritis, huesos..." aria-label="Search">
+                            <button class="btnshc" (click)="searchProductActivate()"><i class="fa fa-search"></i></button>
+                        </form>
+                        <div class="row">
+                            <div *ngIf="!categorias" class="col-lg-6 categ">
+                                <button class="btn btn-primary btn-block" (click)="activarCategorias()">Ver Categorías <i class="fa fa-angle-down float-right"></i></button>
+                            </div>
+                            <div *ngIf="categorias" class="col-lg-6 categ">
+                                <button class="btn btn-primary btn-block" (click)="loadByCategory('Belleza y cuidado personal')">Belleza y Cuidado</button>
+                                <button class="btn btn-primary btn-block" (click)="loadByCategory('Tratamientos para la salud')">Tratamientos de Salud</button>
+                                <button class="btn btn-primary btn-block" (click)="loadByCategory('Control de peso y desintoxicación')">Control de Peso</button>
+                                <button class="btn btn-primary btn-block" (click)="loadByCategory('Alimentos y especies')">Alimentos y Especies</button>
+                                <button class="btn btn-primary btn-block" (click)="loadByCategory('Cuidado Preventivo')">Cuidado Preventivo</button>
+                                <button class="btn btn-primary btn-block" (click)="loadByCategory('Vitaminas y suplementos')">Vitaminas y Suplementos</button>
+                                <button class="btn btn-primary btn-block" (click)="loadByCategory('Bienestar sexual')">Bienestar Sexual</button>
+                                <button class="btn btn-primary btn-block" (click)="loadByCategory('Aceites esenciales')">Aceites Esenciales</button>
+                                <button class="btn btn-primary btn-block" (click)="loadByCategory('Plantas medicinales')">Plantas Medicinales</button>
+                                <button class="btn btn-primary btn-block" (click)="loadByCategory('Suplementos deportivos')">Suplementos Deportivos</button>
+                                <button class="btn btn-primary btn-block" (click)="loadByCategory('Salud de los Niños')">Salud de los Niños</button>
                                 <button class="btn btn-primary btn-block" (click)="allProducts()">Todos los productos</button>
                             </div>
                         </div>
@@ -36,10 +63,15 @@
                     <div *ngIf="!busqueda" class="row row-cols-1 row-cols-md-4">
                         <div class="col mb-3" *ngFor="let item of productos">
                             <div class="card h-100 games" (click)="openProduct(item.id)">
-                                <img [src]="item.imagen" class="card-img-top prd" alt="...">
                                 <div class="card-body">
-                                    <h5>{{item.nombre | titlecase}}</h5>
-                                    <h5>{{item.presentacion | titlecase}}</h5>
+                                    <div class="text-center">
+                                        <img [src]="item.imagen" class="img-fluid prd" width="70%" alt="Responsive image">
+                                    </div>
+                                    <hr>
+                                    <div class="text-center">
+                                        <h5>{{item.nombre}}</h5>
+                                        <h5>{{item.presentacion}}</h5>
+                                    </div>
                                 </div>
                                 <div class="card-footer">
                                     <div class="text-center mb-2">
@@ -55,8 +87,8 @@
                             <div class="card h-100 games" (click)="openProduct(item.id)">
                                 <img [src]="item.imagen" class="card-img-top prd" alt="...">
                                 <div class="card-body">
-                                    <h5>{{item.nombre | titlecase}}</h5>
-                                    <h5>{{item.presentacion | titlecase}}</h5>
+                                    <h5>{{item.nombre}}</h5>
+                                    <h5>{{item.presentacion}}</h5>
                                 </div>
                                 <div class="card-footer">
                                     <div class="text-center mb-2">

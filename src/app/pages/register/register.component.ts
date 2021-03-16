@@ -60,7 +60,7 @@ export class RegisterComponent implements OnInit {
     });
     swalWithBootstrapButtons.fire({
       title: 'Creación de cuenta',
-      text: 'Va a crear na cuenta en Torreón Market',
+      text: 'Va a crear una cuenta en Torreón Market',
       icon: 'question',
       showCancelButton: true,
       confirmButtonText: 'Si, crear cuenta',
@@ -80,7 +80,7 @@ export class RegisterComponent implements OnInit {
                 };
                 swalWithBootstrapButtons.fire(
                   'Cuenta creada',
-                  'Bienvenido a EjePlay.',
+                  'Bienvenido a Torreón Market.',
                   'success'
                 );
                 this.authSvc.createUserData(id, datos);

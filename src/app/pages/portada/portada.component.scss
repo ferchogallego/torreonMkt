@@ -1,3 +1,21 @@
+.cookies {
+    margin-left: 5%;
+    margin-top: 21rem;
+    z-index: 100;
+    position: fixed;
+    .card {
+        background-color: #004c97;
+        .card-text {
+            font-size: 14px;
+            color: #fff;
+            a,
+            button {
+                color: #fff;
+            }
+        }
+    }
+}
+
 .slideBox {
     margin-top: 124px;
     z-index: -10;

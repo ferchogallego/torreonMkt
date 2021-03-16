@@ -10,7 +10,7 @@
                             <div class="row">
                                 <label for="formControlRange"><p class="titulo" style="font-size: 18px;"><b>Buscar por producto, enfermedad, o por parte del cuerpo:</b></p></label>
                                 <input class="form-control inp mt-2" [(ngModel)]="filterProducto" name="filterProducto" type="search" placeholder="Ej...colágeno, artritis, huesos" aria-label="Search" autocomplete="off">
-                                <button class="btnshc mt-2"><i class="fa fa-search fa-lg"></i></button>
+                                <button class="btnshc mt-2"><i class="fa fa-search"></i></button>
                             </div>
                         </div>
                     </form>
@@ -37,8 +37,8 @@
                 <div class="card h-100 games" (click)="openProduct(item.id)">
                     <img [src]="item.imagen" class="card-img-top prd" alt="...">
                     <div class="card-body">
-                        <h5>{{item.nombre | titlecase}}</h5>
-                        <h5>{{item.presentacion | titlecase}}</h5>
+                        <h5>{{item.nombre }}</h5>
+                        <h5>{{item.presentacion }}</h5>
                     </div>
                     <div class="card-footer">
                         <div class="text-center mb-2">
