@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { ProductosService } from '../../services/productos.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import {ProductI} from '../../shared/product.interface';
@@ -9,6 +9,7 @@ import {ProductI} from '../../shared/product.interface';
   styleUrls: ['./products.component.scss']
 })
 export class ProductsComponent implements OnInit {
+  @ViewChild('sectionSubscribe', { static: true }) sectionSubscribeDiv: ElementRef;
   categorias = false;
   busqueda = false;
   filterProducto = '';
@@ -21,6 +22,7 @@ export class ProductsComponent implements OnInit {
               private router: Router) { }
 
   ngOnInit(): void {
+    this.scrollToSubscribe();
     const id = this.route.snapshot.paramMap.get('id');
     this.productoSvc.loadAllProducts()
                    .subscribe(res => {
@@ -37,6 +39,10 @@ export class ProductsComponent implements OnInit {
                         }
                       }
                    });
+  }
+
+  scrollToSubscribe(){
+    this.sectionSubscribeDiv.nativeElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
   }
 
   activarCategorias(){

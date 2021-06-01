@@ -42,4 +42,46 @@ export class InventarioComponent implements OnInit {
     });
   }
 
+  activaProducto(idProd: string){
+    Swal.fire({
+      title: 'Activar Producto',
+      text: 'Se va a activar este producto en el catálogo',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Si, activarlo'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.productoSvc.activarProducto(idProd);
+        Swal.fire(
+          'Activado!',
+          'Producto activado en el catálogo.',
+          'success'
+        );
+      }
+    });
+  }
+
+  desactivaProducto(idProd: string){
+    Swal.fire({
+      title: 'Desactivar Producto',
+      text: 'Se va a desactivar este producto en el catálogo',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Si, Desactivarlo'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.productoSvc.desactivarProducto(idProd);
+        Swal.fire(
+          'Desactivado!',
+          'Producto desactivado en el catálogo.',
+          'success'
+        );
+      }
+    });
+  }
+
 }

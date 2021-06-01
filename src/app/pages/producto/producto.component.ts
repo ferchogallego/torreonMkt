@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { ProductosService } from '../../services/productos.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
@@ -10,6 +10,8 @@ import Swal from 'sweetalert2';
   styleUrls: ['./producto.component.scss']
 })
 export class ProductoComponent implements OnInit {
+
+  @ViewChild('sectionSubscribe', { static: true }) sectionSubscribeDiv: ElementRef;
 
   public user = this.authSvc.afAuth.user;
   perfilUser: any;
@@ -27,18 +29,25 @@ export class ProductoComponent implements OnInit {
   nombre: string;
   imagen: string;
   precio: string;
+  descuento: number;
+  cantidad: number;
   categoria: string;
   descripcion: string;
   beneficios: any;
   uso: string;
   idProd: string;
   presentacion: string;
+  elementPosition: any;
+
+
   constructor(private productoSvc: ProductosService,
               private route: ActivatedRoute,
               private authSvc: AuthService,
               private router: Router) { }
 
   ngOnInit(): void {
+    this.scrollToSubscribe();
+
     this.user.subscribe(resp => {
       this.perfilUser = resp;
       if (!this.perfilUser) {
@@ -50,9 +59,12 @@ export class ProductoComponent implements OnInit {
     this.productoSvc.loadProductById(id)
                     .subscribe(res => {
                       this.detalle = res;
+                      this.cantidad = this.detalle.cantidad;
+                      console.log(this.cantidad);
                       this.nombre = this.detalle.nombre;
                       this.precio = this.detalle.precio;
                       this.imagen = this.detalle.imagen;
+                      this.descuento = this.detalle.descuento;
                       this.categoria = this.detalle.categoria;
                       this.beneficios = this.detalle.beneficios;
                       this.descripcion = this.detalle.descripcion;
@@ -60,6 +72,10 @@ export class ProductoComponent implements OnInit {
                       this.presentacion = this.detalle.presentacion;
                       // console.log(this.detalle);
                     });
+  }
+
+  scrollToSubscribe(){
+    this.sectionSubscribeDiv.nativeElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
   }
 
   cantidadProducto(operacion: string){
@@ -78,16 +94,26 @@ export class ProductoComponent implements OnInit {
   }
 
   sendRequest(){
-    this.user.subscribe(resp => {
-      this.perfilUser = resp;
-      const total = Number(this.cant) * Number(this.precio);
-      this.solicitud.compra.push(this.idProd, this.nombre, this.imagen, this.precio, this.cant, total);
-      this.solicitud.usuario = this.perfilUser.uid;
-      this.productoSvc.cargarPedido(this.solicitud)
-                      .then(orden => {
-                        this.router.navigate(['/solicitudes']);
-                      }).catch(err => console.log(err));
-    });
+    if (this.cantidad > 0) {
+      this.user.subscribe(resp => {
+        this.perfilUser = resp;
+        const total = Number(this.cant) * Number(this.precio);
+        const totalDesc = (total * this.descuento) / 100;
+        const totalNeto = total - totalDesc;
+        this.solicitud.compra.push(this.idProd, this.nombre, this.imagen, this.precio, this.cant, totalDesc, totalNeto, total);
+        this.solicitud.usuario = this.perfilUser.uid;
+        this.productoSvc.cargarPedido(this.solicitud)
+                        .then(orden => {
+                          this.router.navigate(['/solicitudes']);
+                        }).catch(err => console.log(err));
+      });
+    } else {
+      Swal.fire(
+        'Producto agotado :(',
+        'Por el momento tenemos inventario para la venta',
+        'error'
+      );
+    }
   }
 
   onLoginFacebook(){

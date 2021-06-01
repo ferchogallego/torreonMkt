@@ -12,4 +12,6 @@ export interface ProductI {
     fileRef?: string;
     beneficios: any;
     descripcion: string;
+    descuento: number;
+    estado: string;
 }

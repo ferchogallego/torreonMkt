@@ -10,6 +10,8 @@
                             <th scope="col"></th>
                             <th scope="col">Cantidad</th>
                             <th scope="col">Precio</th>
+                            <th scope="col">Subtotal</th>
+                            <th scope="col">Descuento</th>
                             <th scope="col">Total</th>
                             <th scope="col"></th>
                         </tr>
@@ -22,7 +24,9 @@
                             </td>
                             <td class="text-center">{{item.compra[4]}}</td>
                             <td>${{item.compra[3] | number}}</td>
+                            <td>${{item.compra[7] | number}}</td>
                             <td>${{item.compra[5] | number}}</td>
+                            <td>${{item.compra[6] | number}}</td>
                             <td>
                                 <button class="btn btn-danger" title="Eliminar" (click)="borrarProducto(item)">
                             <i class="fa fa-trash"></i>
@@ -57,13 +61,17 @@
                     <b class="liquid" style="float: right;">${{subtotal | number}}</b>
                 </p>
                 <p>
+                    <label for="Subtotal" class="blok"><b>Descuento:</b></label>
+                    <b class="liquid" style="float: right;">${{descuento | number}}</b>
+                </p>
+                <p>
                     <label for="Subtotal" class="blok1"><b>TOTAL:</b></label>
                     <b class="liquid1" style="float: right;">${{liquidacion | number}}</b>
                 </p>
                 <div class="form-check">
                     <input class="form-check-input" type="checkbox" (change)="check($event.target.value)" id="defaultCheck1">
                     <label class="form-check-label" for="defaultCheck1">
-                        Acepto términos y condiciones de Torreón Market y autorizo el tratamiento de mis datos personales con las siguientes condiciones.
+                        Acepto términos y condiciones de Torreón Market y autorizo el tratamiento de mis datos personales con las siguientes condiciones. <a href="#">Ver términos de uso</a> - <a href="#">Ver políticas de seguridad</a>
                     </label>
                 </div>
                 <hr>

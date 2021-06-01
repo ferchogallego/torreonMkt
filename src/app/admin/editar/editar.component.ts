@@ -31,12 +31,14 @@ export class EditarComponent implements OnInit {
     nombre: new FormControl('', Validators.required),
     cantidad: new FormControl('', Validators.required),
     precio: new FormControl('', Validators.required),
+    descuento: new FormControl(0),
     imagen: new FormControl('', Validators.required),
     fechaCreacion: new FormControl(new Date().getTime()),
     solucion: new FormControl('', Validators.required),
     uso: new FormControl('', Validators.required),
     descripcion: new FormControl('', Validators.required),
-    presentacion: new FormControl('', Validators.required)
+    presentacion: new FormControl('', Validators.required),
+    estado: new FormControl('Activado')
   });
 
   private initValuesForm(){
@@ -45,6 +47,7 @@ export class EditarComponent implements OnInit {
       nombre: this.producto.nombre,
       cantidad: this.producto.cantidad,
       precio: this.producto.precio,
+      descuento: this.producto.descuento,
       fechaCreacion: this.producto.fechaCreacion,
       solucion: this.producto.solucion,
       uso: this.producto.uso,
@@ -108,19 +111,20 @@ export class EditarComponent implements OnInit {
           prd.imagen = this.imageOriginal;
           this.productoSvc.updateProductById(prd).then(() => {
             Swal.fire('Actualizado!', 'El producto ha sido editado.', 'success');
+            this.router.navigate(['/administrador']);
           }).catch((error) => {
             Swal.fire('Error!', 'Error al editar el producto', 'error');
           });
         } else {
           this.productoSvc.updateProductById(prd, this.image).then(() => {
             Swal.fire('Actualizado!', 'El producto ha sido editado.', 'success');
+            this.router.navigate(['/administrador']);
           }).catch((error) => {
             Swal.fire('Error!', 'Error al editar el producto', 'error');
           });
         }
       }
     });
-    this.router.navigate(['/administrador']);
   }
 
   handleBenefits(bnf: string){

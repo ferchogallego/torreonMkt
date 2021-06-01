@@ -16,16 +16,18 @@
                             <div class="row">
                                 <div class="col-lg-10">
                                     <label>Categoria</label>
-                                    <select class="form-control" name="tipo" (change)="handleCategory($event.target.value)">                      
-                                            <option value="Plantas medicinales">Plantas medicinales</option>
-                                            <option value="Control de peso y desintoxicación">Control de peso y desintoxicación</option>
-                                            <option value="Aceites esenciales">Aceites esenciales</option>
+                                    <select class="form-control" name="tipo" (change)="handleCategory($event.target.value)">  
                                             <option value="Belleza y cuidado personal">Belleza y cuidado personal</option>
-                                            <option value="Tratamientos para la salud">Tratamientos para la salud</option>
-                                            <option value="Bienestar sexual">Bienestar sexual</option>
+                                            <option value="Tratamientos para la salud">Tratamientos para la salud</option> 
+                                            <option value="Control de peso y desintoxicación">Control de peso y desintoxicación</option>
                                             <option value="Alimentos y especies">Alimentos y especies</option>
+                                            <option value="Vitaminas y suplementos">Vitaminas y suplementos</option> 
+                                            <option value="Bienestar sexual">Bienestar sexual</option>              
+                                            <option value="Plantas medicinales">Plantas medicinales</option>
                                             <option value="Suplementos deportivos">Suplementos deportivos</option>
-                                            <option value="Vitaminas y suplementos">Vitaminas y suplementos</option>
+                                            <option value="Cuidado Preventivo">Cuidado preventivo</option>                                            
+                                            <option value="Aceites esenciales">Aceites esenciales</option>
+                                            <option value="Salud de los Niños">Salud de los niños</option>
                                     </select>
                                     <div class="mt-1">
                                         <p class="ctgs" *ngFor="let cat of categorias"><i class="fa fa-angle-right"></i>&nbsp;{{cat}}</p>
@@ -67,6 +69,10 @@
                             <label>Precio:</label>
                             <input type="number" formControlName="precio" class="form-control" name="precio" placeholder="Ingrese el precio" [class.is-invalid]="precioNoValido">
                             <small *ngIf="precioNoValido" class="text-danger">Debe ingresar el precio</small>
+                        </div>
+                        <div class="form-group">
+                            <label>Descuento:</label>
+                            <input type="number" formControlName="descuento" class="form-control" name="precio" placeholder="Ingrese el descuento">
                         </div>
                         <div class="col-md-12 form-group">
                             <label>Solución del producto:</label>

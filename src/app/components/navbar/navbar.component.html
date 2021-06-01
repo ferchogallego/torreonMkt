@@ -127,7 +127,7 @@
                     </div>
                 </li>
             </ul>
-            <form class="form-inline">
+            <form id="buscar" [formGroup]="searchForm" class="form-inline" (ngSubmit)="OnSearch(searchForm.value.palabra)">
                 <input type="text" value="" class="form-control sch" placeholder="Ej...colágeno, artritis, huesos" formControlName="palabra" autocomplete="off" />
                 <button type="submit" class="btn btn-light but"><i class="fa fa-search" aria-hidden="true"></i></button><br>
             </form>

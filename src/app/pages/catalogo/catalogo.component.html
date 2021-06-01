@@ -41,6 +41,9 @@
                         <h5>{{item.presentacion }}</h5>
                     </div>
                     <div class="card-footer">
+                        <div class="text-right">
+                            <span *ngIf="item.descuento > 0" class="notify-badge">-{{item.descuento}}%</span>
+                        </div>
                         <div class="text-center mb-2">
                             <h4 class="card-text"><b>${{item.precio | number}}</b></h4>
                         </div>

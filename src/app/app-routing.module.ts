@@ -26,6 +26,7 @@ import { PurchasesComponent } from './pages/purchases/purchases.component';
 import { NosotrosComponent } from './pages/nosotros/nosotros.component';
 import { AyudaComponent } from './pages/ayuda/ayuda.component';
 import { ContrasenaComponent } from './pages/contrasena/contrasena.component';
+import { AdmincategComponent } from './admin/admincateg/admincateg.component';
 
 
 
@@ -36,6 +37,7 @@ const routes: Routes = [
   { path: 'productos/:id', component: ProductsComponent},
   { path: 'producto/:id', component: ProductoComponent},
   { path: 'solicitudes', component: RequestComponent, canActivate: [AuthGuard]},
+  { path: 'categ', component: AdmincategComponent, canActivate: [AuthGuard]},
   { path: 'info', component: PurchasesComponent, canActivate: [AuthGuard]},
   { path: 'catalogo', component: CatalogoComponent},
   { path: 'blog', component: BlogComponent},

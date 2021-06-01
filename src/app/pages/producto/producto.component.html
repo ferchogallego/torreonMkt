@@ -1,9 +1,12 @@
+<div #sectionSubscribe></div>
 <app-navsec></app-navsec>
 <div class="container mt-5 mb-5">
     <div class="col-lg-12">
         <div class="row">
             <div class="col-lg-4" id="prdcto">
                 <div class="text-center">
+                    <span *ngIf="descuento > 0 && cantidad > 0" class="notify-badge">-{{descuento}}% 0FF</span>
+                    <span *ngIf="cantidad == 0" class="noti-agotado">AGOTADO</span>
                     <img [src]="imagen" alt="" width="70%">
                 </div>
                 <h5>Descripción:</h5>

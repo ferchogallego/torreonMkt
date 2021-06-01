@@ -38,6 +38,7 @@ import { PurchasesComponent } from './pages/purchases/purchases.component';
 import { NosotrosComponent } from './pages/nosotros/nosotros.component';
 import { AyudaComponent } from './pages/ayuda/ayuda.component';
 import { ContrasenaComponent } from './pages/contrasena/contrasena.component';
+import { AdmincategComponent } from './admin/admincateg/admincateg.component';
 
 @NgModule({
   declarations: [
@@ -70,7 +71,8 @@ import { ContrasenaComponent } from './pages/contrasena/contrasena.component';
     PurchasesComponent,
     NosotrosComponent,
     AyudaComponent,
-    ContrasenaComponent
+    ContrasenaComponent,
+    AdmincategComponent
   ],
   imports: [
     BrowserModule,

@@ -26,12 +26,14 @@ export class NuevoComponent implements OnInit {
     nombre: new FormControl('', Validators.required),
     cantidad: new FormControl('', Validators.required),
     precio: new FormControl('', Validators.required),
+    descuento: new FormControl(0),
     imagen: new FormControl('', Validators.required),
     fechaCreacion: new FormControl(new Date().getTime()),
     solucion: new FormControl('', Validators.required),
     uso: new FormControl('', Validators.required),
     descripcion: new FormControl('', Validators.required),
-    presentacion: new FormControl('', Validators.required)
+    presentacion: new FormControl('', Validators.required),
+    estado: new FormControl('Activado')
   });
   get nombreNoValido() {
     return this.newProductForm.get('nombre').invalid && this.newProductForm.get('nombre').touched;
@@ -103,7 +105,7 @@ export class NuevoComponent implements OnInit {
 
   addBenefits(){
     this.beneficios.push(this.beneficio);
-    console.log(this.categorias);
+    // console.log(this.categorias);
   }
 
   handleCategory(cate: string){
@@ -112,7 +114,7 @@ export class NuevoComponent implements OnInit {
 
   addCategoria(){
     this.categorias.push(this.categ);
-    console.log(this.categorias);
+    // console.log(this.categorias);
   }
 
   deleteCategories(){

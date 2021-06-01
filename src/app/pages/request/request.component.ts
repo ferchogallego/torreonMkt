@@ -22,6 +22,7 @@ export class RequestComponent implements OnInit {
   idUser: string;
   email: string;
   subtotal: number;
+  descuento: number;
   liquidacion: number;
 
   apiKey = '4Vj8eK4rloUd272L48hsrarnUA';
@@ -59,15 +60,22 @@ export class RequestComponent implements OnInit {
       this.shopSvc.cargarCompras(this.idUser)
       .subscribe(res => {
         this.compras = res;
-        // console.log(this.compras);
+        console.log(this.compras);
         let saldo = 0;
+        let descuent = 0;
+        let ttal = 0;
         // tslint:disable-next-line: forin
         for (const key in this.compras){
           // tslint:disable-next-line: radix
-          saldo = parseInt(this.compras[key].compra[5]) + saldo;
+          saldo = parseInt(this.compras[key].compra[7]) + saldo;
+          // tslint:disable-next-line: radix
+          descuent = parseInt(this.compras[key].compra[5]) + descuent;
+          // tslint:disable-next-line: radix
+          ttal = parseInt(this.compras[key].compra[6]) + ttal;
         }
         this.subtotal = saldo;
-        this.liquidacion = saldo;
+        this.descuento = descuent;
+        this.liquidacion = ttal;
       });
       this.authSvc.loadInfoUser(this.idUser)
                   .subscribe(dataUser => {

@@ -59,7 +59,9 @@ export class ProductosService {
     fechaCreacion: producto.fechaCreacion,
     fileRef: this.filePath,
     beneficios: producto.beneficios,
-    descripcion: producto.descripcion
+    descripcion: producto.descripcion,
+    descuento: producto.descuento,
+    estado: producto.estado
   };
   if (producto.id) {
     return this.productosCollection.doc(producto.id).update(prodObj);
@@ -91,8 +93,29 @@ getProductById(id: string){
   }
   loadCategories(){
     return this.db.collection('categorias', ref => ref
-                  .orderBy('orden'))
-                  .valueChanges();
+                  .where('estado', '==', 'Activado'))
+                  .snapshotChanges()
+                  .pipe(
+                    map(actions =>
+                     actions.map(resp => {
+                       const data = resp.payload.doc.data() as any;
+                       const id = resp.payload.doc.id;
+                       return {id, ...data};
+                     }))
+                  );
+  }
+  loadCategoriesAdmin(){
+    return this.db.collection('categorias', ref => ref
+                  .orderBy('orden', 'asc'))
+                  .snapshotChanges()
+                  .pipe(
+                    map(actions =>
+                     actions.map(resp => {
+                       const data = resp.payload.doc.data() as any;
+                       const id = resp.payload.doc.id;
+                       return {id, ...data};
+                     }))
+                  );
   }
 
   loadAllProducts(){
@@ -140,5 +163,22 @@ getProductById(id: string){
   }
   cargarPedido(order: Order){
     return this.db.collection('carShop').add(order);
+  }
+
+  activarProducto(idProd: string){
+    return this.db.collection('productos').doc(idProd).update({estado: 'Activado'});
+  }
+  desactivarProducto(idProd: string){
+    return this.db.collection('productos').doc(idProd).update({estado: 'Desactivado'});
+  }
+
+  activarCategoria(idCat: string){
+    return this.db.collection('categorias').doc(idCat).update({estado: 'Activado'});
+  }
+  desactivarCategoria(idCat: string){
+    return this.db.collection('categorias').doc(idCat).update({estado: 'Desactivado'});
+  }
+  ordenCategoria(idCat: string, nuevoOrden: number){
+    return this.db.collection('categorias').doc(idCat).update({orden: nuevoOrden});
   }
 }

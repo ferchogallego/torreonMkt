@@ -48,7 +48,7 @@ export class PortadaComponent implements OnInit {
                     });
   }
   openCategories(categoria: string){
-    console.log(categoria);
+    // console.log(categoria);
     this.route.navigate([`/productos/${categoria}`]);
   }
 
